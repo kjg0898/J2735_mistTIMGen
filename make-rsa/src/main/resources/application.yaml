@@ -1,0 +1,6 @@
+module:
+  name: make-rsa
+  vertx:
+    profile:
+      active: test
+      multi: false

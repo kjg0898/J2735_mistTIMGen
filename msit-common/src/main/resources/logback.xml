@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <property name="log_dir" value="/logs"></property>
+    <property name="log_name" value="msit-common"></property>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <append>true</append>
+        <file>${log_dir}/${log_name}.log</file>
+
+        <encoder>
+            <charset>UTF-8</charset> <!-- 추가된 인코딩 설정 -->
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] [%-5level] [%logger{36}] : %msg%n</pattern>
+        </encoder>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${log_dir}/${log_name}.%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+            <maxHistory>10</maxHistory>
+            <maxFileSize>500MB</maxFileSize>
+        </rollingPolicy>
+
+
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <charset>UTF-8</charset> <!-- 추가된 인코딩 설정 -->
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] [%-5level] [%logger{36}] : %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="FILE" />
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>

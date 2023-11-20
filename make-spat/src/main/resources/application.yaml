@@ -1,0 +1,6 @@
+module:
+  name: make-spat
+  vertx:
+    profile:
+      active: test
+      multi: false

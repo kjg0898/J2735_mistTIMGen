@@ -1,0 +1,55 @@
+plugins {
+    id 'java'
+}
+
+
+subprojects {
+    group 'com.ns21'
+    version '1.0-SNAPSHOT'
+    apply plugin: 'java'
+
+
+    repositories {
+        mavenCentral().content {
+            excludeModule("javax.media", "jai_core") //jar_core central maven not found
+        }
+    }
+    java {
+        sourceCompatibility = JavaVersion.VERSION_18
+        targetCompatibility = JavaVersion.VERSION_18
+    }
+    dependencies { //공통 dependency
+
+        //oss
+        implementation fileTree(dir: '../libs', include: ['*.jar'])
+
+        //lombok
+        compileOnly 'org.projectlombok:lombok:1.18.28'
+        annotationProcessor 'org.projectlombok:lombok:1.18.28'
+
+
+        //vertx
+        implementation group: 'io.vertx', name: 'vertx-core', version: '4.4.4'
+        implementation group: 'io.vertx', name: 'vertx-circuit-breaker', version: '4.4.4'
+        implementation group: 'io.vertx', name: 'vertx-service-proxy', version: '4.4.4'
+        implementation group: 'io.vertx', name: 'vertx-rx-java2', version: '4.4.4'
+        implementation group: 'io.vertx', name: 'vertx-config', version: '4.4.4'
+
+        //vertx config is json type. so I'm want to config file is yaml type
+        //For convert Only yaml to json
+        implementation 'org.yaml:snakeyaml:2.0'
+
+        //log
+        implementation 'ch.qos.logback:logback-classic:1.4.1'
+        implementation 'org.slf4j:slf4j-api:2.0.3'
+
+        //test
+        testImplementation group: 'junit', name: 'junit', version: '4.13.2'
+        testImplementation group: 'io.vertx', name: 'vertx-unit', version: '4.4.4'
+        testCompileOnly 'org.projectlombok:lombok:1.18.28'
+        testAnnotationProcessor 'org.projectlombok:lombok:1.18.28'
+
+    }
+}
+
+

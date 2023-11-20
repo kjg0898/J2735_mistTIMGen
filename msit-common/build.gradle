@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+// Inherit group and version from the root project
+group = project.group
+version = project.version
+
+repositories {
+    // Inherits the repositories from the root project
+    mavenCentral()
+}
+
+dependencies {
+
+    // Testing dependencies
+    testImplementation 'junit:junit:4.13.2'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_18
+    targetCompatibility = JavaVersion.VERSION_18
+}
