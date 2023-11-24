@@ -33,5 +33,4 @@ public class JsonToJ2735Exception extends Exception {
         super(message, cause);
     }
 
-    // 필요에 따라 추가적인 생성자 또는 메서드를 구현할 수 있습니다.
 }
