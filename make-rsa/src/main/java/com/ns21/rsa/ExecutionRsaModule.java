@@ -1,5 +1,5 @@
-package com.ns21.rsa; /**
- * packageName    : PACKAGE_NAME
+package com.ns21.rsa;
+ /* packageName    : PACKAGE_NAME
  * fileName       : ExecutionModule.java
  * author         : kjg08
  * date           : 2023-11-16
@@ -10,9 +10,9 @@ package com.ns21.rsa; /**
  * 2023-11-16        kjg08           최초 생성
  */
 
-import com.ns21.common.mist.codec.j2735ToJson;
-import com.ns21.common.mist.codec.jsonToJ2735;
-import com.ns21.common.util.JsonToJ2735Exception;
+import com.ns21.common.mist.codec.J2735ToJson;
+import com.ns21.common.mist.codec.JsonToJ2735;
+import com.ns21.common.exception.JsonToJ2735Exception;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.CompositeFuture;
 import io.vertx.core.Future;
@@ -29,7 +29,6 @@ public class ExecutionRsaModule extends AbstractVerticle {
 
     private void processFile(String filePath, Function<String, String> lineProcessor) throws IOException {
         String resourcePath = "make-rsa/src/main/resources/" + filePath;
-        int i = 0;
         File file = new File(resourcePath);
 
         if (!file.exists()) {
@@ -65,7 +64,7 @@ public class ExecutionRsaModule extends AbstractVerticle {
         // 파일 처리를 위한 비동기 작업 생성
         Future<Void> processJson = processFileAsync("testRsaJson.txt", data -> {
             try {
-                return jsonToJ2735.convertToJ2735(data);
+                return JsonToJ2735.convertToJ2735(data);
             } catch (JsonToJ2735Exception e) {
                 throw new RuntimeException(e);
             }
@@ -73,7 +72,7 @@ public class ExecutionRsaModule extends AbstractVerticle {
 
         Future<Void> processJ2735 = processFileAsync("testRsaJ2735.txt", data -> {
             try {
-                return j2735ToJson.convertToJSON(data);
+                return J2735ToJson.convertToJSON(data);
             } catch (JsonToJ2735Exception e) {
                 throw new RuntimeException(e);
             }
@@ -95,7 +94,7 @@ public class ExecutionRsaModule extends AbstractVerticle {
 
         vertx.executeBlocking(future -> {
             try {
-                BufferedReader reader = new BufferedReader(new FileReader(new File("make-rsa/src/main/resources/" + filePath)));
+                BufferedReader reader = new BufferedReader(new FileReader("make-rsa/src/main/resources/" + filePath));
                 processFileLineByLine(reader, lineProcessor, future, 0);
             } catch (Exception e) {
                 future.fail(e);
@@ -110,6 +109,7 @@ public class ExecutionRsaModule extends AbstractVerticle {
 
         return promise.future();
     }
+
     // 파일의 각 줄을 순차적으로 처리하는 메서드
     private void processFileLineByLine(BufferedReader reader, Function<String, String> lineProcessor, Promise<Object> future, int lineCount) throws IOException {
         String line = reader.readLine();

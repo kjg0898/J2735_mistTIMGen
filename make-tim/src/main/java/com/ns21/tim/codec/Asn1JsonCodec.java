@@ -1,18 +1,18 @@
-package com.ns21.tim; /**
- * packageName    : PACKAGE_NAME
+package com.ns21.tim.codec;
+ /* packageName    : PACKAGE_NAME
  * fileName       : ExecutionModule.java
  * author         : kjg08
  * date           : 2023-11-16
- * description    :
+ * description    : 생성된 json 메세지를 asn.1로 혹은 asn.1 메세지를 json 메세지로 변환하는 클래스
  * ===========================================================
  * DATE              AUTHOR             NOTE
  * -----------------------------------------------------------
  * 2023-11-16        kjg08           최초 생성
  */
 
-import com.ns21.common.mist.codec.j2735ToJson;
-import com.ns21.common.mist.codec.jsonToJ2735;
-import com.ns21.common.util.JsonToJ2735Exception;
+import com.ns21.common.mist.codec.J2735ToJson;
+import com.ns21.common.mist.codec.JsonToJ2735;
+import com.ns21.common.exception.JsonToJ2735Exception;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.CompositeFuture;
 import io.vertx.core.Future;
@@ -22,11 +22,11 @@ import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.util.function.Function;
-public class ExecutionTimModule extends AbstractVerticle {
-    private static final Logger logger = LoggerFactory.getLogger(ExecutionTimModule.class);
+public class Asn1JsonCodec extends AbstractVerticle {
+    private static final Logger logger = LoggerFactory.getLogger(Asn1JsonCodec.class);
 
 
-    private void processFile(String filePath, Function<String, String> lineProcessor) throws IOException {
+   /* private void processFile(String filePath, Function<String, String> lineProcessor) throws IOException {
         String resourcePath = "make-tim/src/main/resources/" + filePath;
         int i = 0;
         File file = new File(resourcePath);
@@ -58,13 +58,13 @@ public class ExecutionTimModule extends AbstractVerticle {
             }
         }
     }
-
+*/
     @Override
     public void start(Promise<Void> startPromise) {
         // 파일 처리를 위한 비동기 작업 생성
         Future<Void> processJson = processFileAsync("testTimJson.txt", data -> {
             try {
-                return jsonToJ2735.convertToJ2735(data);
+                return JsonToJ2735.convertToJ2735(data);
             } catch (JsonToJ2735Exception e) {
                 throw new RuntimeException(e);
             }
@@ -72,7 +72,7 @@ public class ExecutionTimModule extends AbstractVerticle {
 
         Future<Void> processJ2735 = processFileAsync("testTimJ2735.txt", data -> {
             try {
-                return j2735ToJson.convertToJSON(data);
+                return J2735ToJson.convertToJSON(data);
             } catch (JsonToJ2735Exception e) {
                 throw new RuntimeException(e);
             }
@@ -94,7 +94,7 @@ public class ExecutionTimModule extends AbstractVerticle {
 
         vertx.executeBlocking(future -> {
             try {
-                BufferedReader reader = new BufferedReader(new FileReader(new File("make-tim/src/main/resources/" + filePath)));
+                BufferedReader reader = new BufferedReader(new FileReader("make-tim/src/main/resources/" + filePath));
                 processFileLineByLine(reader, lineProcessor, future, 0);
             } catch (Exception e) {
                 future.fail(e);

@@ -1,5 +1,5 @@
-package com.ns21.spat; /**
- * packageName    : PACKAGE_NAME
+package com.ns21.spat;
+ /* packageName    : PACKAGE_NAME
  * fileName       : ExecutionModule.java
  * author         : kjg08
  * date           : 2023-11-16
@@ -10,9 +10,9 @@ package com.ns21.spat; /**
  * 2023-11-16        kjg08           최초 생성
  */
 
-import com.ns21.common.mist.codec.j2735ToJson;
-import com.ns21.common.mist.codec.jsonToJ2735;
-import com.ns21.common.util.JsonToJ2735Exception;
+import com.ns21.common.mist.codec.J2735ToJson;
+import com.ns21.common.mist.codec.JsonToJ2735;
+import com.ns21.common.exception.JsonToJ2735Exception;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.CompositeFuture;
 import io.vertx.core.Future;
@@ -65,7 +65,7 @@ public class ExecutionSpatModule extends AbstractVerticle {
         // 파일 처리를 위한 비동기 작업 생성
         Future<Void> processJson = processFileAsync("testSpatJson.txt", data -> {
             try {
-                return jsonToJ2735.convertToJ2735(data);
+                return JsonToJ2735.convertToJ2735(data);
             } catch (JsonToJ2735Exception e) {
                 throw new RuntimeException(e);
             }
@@ -73,7 +73,7 @@ public class ExecutionSpatModule extends AbstractVerticle {
 
         Future<Void> processJ2735 = processFileAsync("testSpatJ2735.txt", data -> {
             try {
-                return j2735ToJson.convertToJSON(data);
+                return J2735ToJson.convertToJSON(data);
             } catch (JsonToJ2735Exception e) {
                 throw new RuntimeException(e);
             }

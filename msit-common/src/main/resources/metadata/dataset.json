@@ -1,0 +1,15 @@
+[
+	{
+		"uuid": "1f0c4682-8bed-490d-bcd4-c8a7018ceb7a",
+		"log_uuid": "97d8e801-881d-4d02-a98a-39505c290527",
+		"scenario_names": [
+			"day"
+		],
+		"name": "round(20220901140357_autocardata_100)_time(1662014358_1662014382)",
+		"description": "kakaomobility & kadif autonomous car dataset,2022-09-01 05:04:02,korea-pankyo,aligned",
+		"base_path": "/KADIF_Data/2022_3D_Bbox_Dataset_export/",
+		"num_frames": 242,
+		"first_frame_uuid": "64d0eb0b-6f28-48f2-a197-0ed81e277edf",
+		"last_frame_uuid": "bb47ca62-e3e5-4766-9a43-966f3bd2b25a"
+	}
+]

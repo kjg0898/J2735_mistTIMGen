@@ -1,6 +1,5 @@
-package com.ns21.common.util;
+package com.ns21.common.enums.j2735;
 
-import com.ns21.common.enums.j2735.CODER_TYPE;
 import com.oss.asn1.Coder;
 import dsrc.Dsrc;
 

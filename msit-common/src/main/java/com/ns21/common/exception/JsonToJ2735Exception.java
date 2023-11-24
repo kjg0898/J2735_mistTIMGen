@@ -1,20 +1,17 @@
-package com.ns21.common.util;
+package com.ns21.common.exception;
 
 /**
  * packageName    : com.ns21.common.util
  * fileName       : JsonToJ2735Exception.java
  * author         : kjg08
  * date           : 2023-11-17
- * description    :
+ * description    :JSON을 J2735 형식으로 변환할 때 발생하는 예외를 처리함
  * ===========================================================
  * DATE              AUTHOR             NOTE
  * -----------------------------------------------------------
  * 2023-11-17        kjg08           최초 생성
  */
 
-/**
- * JsonToJ2735Exception 클래스는 JSON을 J2735 형식으로 변환할 때 발생하는 예외를 나타냅니다.
- */
 public class JsonToJ2735Exception extends Exception {
 
     /**

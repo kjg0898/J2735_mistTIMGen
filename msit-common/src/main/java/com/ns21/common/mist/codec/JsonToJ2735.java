@@ -1,14 +1,13 @@
 package com.ns21.common.mist.codec;
 
 import com.ns21.common.enums.j2735.CODER_TYPE;
-import com.ns21.common.util.ASN1CodeFactory;
+import com.ns21.common.enums.j2735.ASN1CodeFactory;
 import com.ns21.common.util.ConvertUtil;
-import com.ns21.common.util.JsonToJ2735Exception;
+import com.ns21.common.exception.JsonToJ2735Exception;
 import com.oss.asn1.AbstractData;
 import com.oss.asn1.Coder;
 import dsrc.dsrc.MessageFrame;
 import io.vertx.core.json.DecodeException;
-import io.vertx.core.json.JsonObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,8 +19,8 @@ import java.io.IOException;
  * jsonToJ2735 클래스는 JSON 데이터를 J2735 형식으로 변환합니다.
  * 이 클래스는 ASN.1 코더를 사용하여 메시지를 인코딩 및 디코딩합니다.
  */
-public class jsonToJ2735 {
-    private static final Logger logger = LoggerFactory.getLogger(jsonToJ2735.class);
+public class JsonToJ2735 {
+    private static final Logger logger = LoggerFactory.getLogger(JsonToJ2735.class);
 
     /**
      * JSON 문자열을 J2735 형식으로 변환합니다.

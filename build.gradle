@@ -27,6 +27,8 @@ subprojects {
         compileOnly 'org.projectlombok:lombok:1.18.28'
         annotationProcessor 'org.projectlombok:lombok:1.18.28'
 
+        // Jackson Databind Dependency
+        implementation 'com.fasterxml.jackson.core:jackson-databind:2.11.0'
 
         //vertx
         implementation group: 'io.vertx', name: 'vertx-core', version: '4.4.4'

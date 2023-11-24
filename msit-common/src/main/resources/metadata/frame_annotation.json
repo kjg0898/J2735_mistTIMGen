@@ -1,0 +1,506 @@
+[
+  {
+    "uuid": "a2f91995-2207-4c5b-bfaa-255fd66bbd9a",
+    "frame_data_uuid": "1bfbe81e-e6d2-40ed-8122-2b34cd153257",
+    "instance_uuid": "04e1e5d2-1a72-42c0-ac3b-7653ed5475a9",
+    "annotation_type_name": "bbox_pcd3d",
+    "is_lidar_synced": false,
+    "geometry": {
+      "wlh": [
+        2.3019640146886293,
+        5.889514282388993,
+        2.1024785869762708
+      ],
+      "center": [
+        11.070372492873648,
+        9.65813919041067,
+        -1.284915211625999
+      ],
+      "orientation": [
+        0.9764980260787441,
+        0.0,
+        0.0,
+        0.2155263442466288
+      ]
+    },
+    "num_pts": 696,
+    "attribute": {
+      "vehicle_state": "stopped"
+    },
+    "description": null,
+    "prev": null,
+    "next": "78b08c0c-8d0a-4b06-9284-71aa6b50f088"
+  },
+  {
+    "uuid": "5c2d1b13-f3ea-49da-8110-67801902dafc",
+    "frame_data_uuid": "b1c82c6a-1ecf-46e8-9e48-bf3b896b53ff",
+    "instance_uuid": "04e1e5d2-1a72-42c0-ac3b-7653ed5475a9",
+    "visibility_level": 4,
+    "annotation_type_name": "bbox_image3d",
+    "is_lidar_synced": true,
+    "geometry": {
+      "is_visible": false,
+      "bbox_image3d": [
+        [
+          2583.3145662963348,
+          3078.8458969908943,
+          3069.2277338582094,
+          2577.4246729508727,
+          2196.121062953438,
+          2749.305730891585,
+          2738.517598806018,
+          2190.6229726954375
+        ],
+        [
+          612.8250535900769,
+          614.715936964436,
+          922.3994987653202,
+          864.8957403199593,
+          617.2178156197513,
+          621.0864133774601,
+          1035.8007130610338,
+          936.8754656203039
+        ]
+      ]
+    },
+    "num_pts": null,
+    "attribute": {
+      "vehicle_state": "stopped"
+    },
+    "description": null,
+    "prev": null,
+    "next": "f7308e9f-17fe-4b74-87d9-997159dce17f"
+  },
+  {
+    "uuid": "5192242a-7623-480b-94e0-80d3cd3da0f5",
+    "frame_data_uuid": "cf85a9b9-04c3-4ff7-992d-e6d340edcd0b",
+    "instance_uuid": "04e1e5d2-1a72-42c0-ac3b-7653ed5475a9",
+    "visibility_level": 4,
+    "annotation_type_name": "bbox_image3d",
+    "is_lidar_synced": true,
+    "geometry": {
+      "is_visible": true,
+      "bbox_image3d": [
+        [
+          723.808328659324,
+          900.6536071634072,
+          900.4208243987492,
+          724.0516123095364,
+          524.7910919154461,
+          790.1780814063137,
+          790.279754170894,
+          525.9633309925439
+        ],
+        [
+          604.9408945784825,
+          605.6124689738798,
+          770.7788419393866,
+          767.8064203755459,
+          612.4623093734311,
+          613.6490745274018,
+          865.1371791953931,
+          858.6546555806185
+        ]
+      ]
+    },
+    "num_pts": null,
+    "attribute": {
+      "vehicle_state": "stopped"
+    },
+    "description": null,
+    "prev": null,
+    "next": "0481f0cf-1a5e-4e4f-93bd-ab7f07005cbe"
+  },
+  {
+    "uuid": "2faf5e0a-1891-4c9d-9d90-31531c01c18c",
+    "frame_data_uuid": "71e3e2bf-dd73-4104-b51d-3fac83be23df",
+    "instance_uuid": "04e1e5d2-1a72-42c0-ac3b-7653ed5475a9",
+    "visibility_level": 4,
+    "annotation_type_name": "bbox_image3d",
+    "is_lidar_synced": true,
+    "geometry": {
+      "is_visible": false,
+      "bbox_image3d": [
+        [
+          -3291.124704360102,
+          -1935.7878813498407,
+          -1945.461572466502,
+          -3309.1340326589198,
+          -7116.717818353487,
+          -2754.8134344253617,
+          -2776.895856935946,
+          -7201.909701272753
+        ],
+        [
+          617.3074643722614,
+          614.752726633593,
+          1007.9461003434212,
+          1149.257774019393,
+          656.0984763558334,
+          632.631620094251,
+          1364.061713129111,
+          2076.991713108982
+        ]
+      ]
+    },
+    "num_pts": null,
+    "attribute": {
+      "vehicle_state": "stopped"
+    },
+    "description": null,
+    "prev": null,
+    "next": "b46c09e7-b2c5-4d3d-a506-daa04c123a5d"
+  },
+  {
+    "uuid": "27f23283-cd32-4ef3-b5aa-a2d1b6596c2a",
+    "frame_data_uuid": "fda71a17-308c-4116-aa9f-93c37dc27d63",
+    "instance_uuid": "04e1e5d2-1a72-42c0-ac3b-7653ed5475a9",
+    "visibility_level": 4,
+    "annotation_type_name": "bbox_image3d",
+    "is_lidar_synced": true,
+    "geometry": {
+      "is_visible": false,
+      "bbox_image3d": [
+        [
+          -178483.7133305248,
+          -192482.89741690218,
+          -192562.8595322826,
+          -178563.6754459052,
+          -105160.45916155187,
+          -119159.64325437942,
+          -119239.60536976,
+          -105240.4212833826
+        ],
+        [
+          -3352.685348400464,
+          -2719.4355988788366,
+          26403.916593296053,
+          25770.666843774423,
+          -2312.063766067128,
+          -1678.8140164593888,
+          27444.53817581628,
+          26811.288426294654
+        ]
+      ]
+    },
+    "num_pts": null,
+    "attribute": {
+      "vehicle_state": "stopped"
+    },
+    "description": null,
+    "prev": null,
+    "next": "76394cd3-1732-486b-b30d-f672d097f14b"
+  },
+  {
+    "uuid": "160bc2b3-c7e9-4f4c-8dac-6b4d269140c1",
+    "frame_data_uuid": "283c62da-3363-4b57-a7c7-84480bb9f617",
+    "instance_uuid": "04e1e5d2-1a72-42c0-ac3b-7653ed5475a9",
+    "visibility_level": 4,
+    "annotation_type_name": "bbox_image3d",
+    "is_lidar_synced": true,
+    "geometry": {
+      "is_visible": false,
+      "bbox_image3d": [
+        [
+          50858.66843588414,
+          19235.48922064774,
+          19069.687215189206,
+          50692.86643371918,
+          59672.78009035712,
+          28049.60087512164,
+          27883.798878484547,
+          59506.97809372094
+        ],
+        [
+          -11296.593294818958,
+          -11290.936121925979,
+          17720.393148265146,
+          17714.735975782707,
+          -6881.459328525782,
+          -6875.802155833609,
+          22135.527114617125,
+          22129.869941724148
+        ]
+      ]
+    },
+    "num_pts": null,
+    "attribute": {
+      "vehicle_state": "stopped"
+    },
+    "description": null,
+    "prev": null,
+    "next": "e5083d52-df93-454d-9745-6a9cd54c19e1"
+  },
+  {
+    "uuid": "065392d7-587f-49cb-9755-0bab12447fd2",
+    "frame_data_uuid": "b575b1d9-996c-4e09-9255-bacc6d7ba39f",
+    "instance_uuid": "04e1e5d2-1a72-42c0-ac3b-7653ed5475a9",
+    "visibility_level": 4,
+    "annotation_type_name": "bbox_image3d",
+    "is_lidar_synced": true,
+    "geometry": {
+      "is_visible": false,
+      "bbox_image3d": [
+        [
+          240583.8014975741,
+          222506.37579016256,
+          222410.1928443304,
+          240487.61854949035,
+          174095.51856876092,
+          156018.092854829,
+          155921.909912257,
+          173999.33562292872
+        ],
+        [
+          4437.811931326103,
+          4899.593533117237,
+          33807.069957059444,
+          33345.288355448516,
+          3287.8269733832485,
+          3749.608574917643,
+          32657.08499898822,
+          32195.303397325453
+        ]
+      ]
+    },
+    "num_pts": null,
+    "attribute": {
+      "vehicle_state": "stopped"
+    },
+    "description": null,
+    "prev": null,
+    "next": "0fda608e-c800-4675-b4ac-b0c8b6e0fbb4"
+  },
+  {
+    "uuid": "78b08c0c-8d0a-4b06-9284-71aa6b50f088",
+    "frame_data_uuid": "787960e7-d3fa-48de-b3e7-d5604cfc83fb",
+    "instance_uuid": "04e1e5d2-1a72-42c0-ac3b-7653ed5475a9",
+    "annotation_type_name": "bbox_pcd3d",
+    "is_lidar_synced": false,
+    "geometry": {
+      "wlh": [
+        2.3019640146886293,
+        5.889514282388993,
+        2.1024785869762708
+      ],
+      "center": [
+        11.070372492873648,
+        9.65813919041067,
+        -1.284915211625999
+      ],
+      "orientation": [
+        0.9764980260787441,
+        0.0,
+        0.0,
+        0.2155263442466288
+      ]
+    },
+    "num_pts": 689,
+    "attribute": {
+      "vehicle_state": "stopped"
+    },
+    "description": null,
+    "prev": "a2f91995-2207-4c5b-bfaa-255fd66bbd9a",
+    "next": "1fd9171f-93b3-4032-bb9f-91665a78ed0f"
+  },
+  {
+    "uuid": "f7308e9f-17fe-4b74-87d9-997159dce17f",
+    "frame_data_uuid": "6d3e640c-8910-4fab-837c-449e86892dc1",
+    "instance_uuid": "04e1e5d2-1a72-42c0-ac3b-7653ed5475a9",
+    "visibility_level": 4,
+    "annotation_type_name": "bbox_image3d",
+    "is_lidar_synced": true,
+    "geometry": {
+      "is_visible": false,
+      "bbox_image3d": [
+        [
+          2583.3145663048967,
+          3078.8458969909307,
+          3069.2277338582094,
+          2577.4246730149857,
+          2196.121062953438,
+          2749.305730916769,
+          2738.5175989220947,
+          2190.6229727662535
+        ],
+        [
+          612.8250535896995,
+          614.715936963366,
+          922.3994987653202,
+          864.8957403296639,
+          617.2178156197513,
+          621.0864133773878,
+          1035.8007130911644,
+          936.8754656191287
+        ]
+      ]
+    },
+    "num_pts": null,
+    "attribute": {
+      "vehicle_state": "stopped"
+    },
+    "description": null,
+    "prev": "5c2d1b13-f3ea-49da-8110-67801902dafc",
+    "next": "133f63e9-9eb1-42ed-b978-903b00b2789d"
+  },
+  {
+    "uuid": "0481f0cf-1a5e-4e4f-93bd-ab7f07005cbe",
+    "frame_data_uuid": "9350f8f0-ed7f-4e22-bf27-790b60f37c7a",
+    "instance_uuid": "04e1e5d2-1a72-42c0-ac3b-7653ed5475a9",
+    "visibility_level": 4,
+    "annotation_type_name": "bbox_image3d",
+    "is_lidar_synced": true,
+    "geometry": {
+      "is_visible": true,
+      "bbox_image3d": [
+        [
+          723.8083286834454,
+          900.6536071530893,
+          900.4208244189963,
+          724.0516122818507,
+          524.791091877563,
+          790.1780814318194,
+          790.2797541708948,
+          525.9633310358441
+        ],
+        [
+          604.9408945776545,
+          605.6124689738449,
+          770.7788419352237,
+          767.8064203730045,
+          612.4623093728028,
+          613.6490745252956,
+          865.1371791945263,
+          858.6546555713345
+        ]
+      ]
+    },
+    "num_pts": null,
+    "attribute": {
+      "vehicle_state": "stopped"
+    },
+    "description": null,
+    "prev": "5192242a-7623-480b-94e0-80d3cd3da0f5",
+    "next": "3890ebc9-9367-481c-9110-1cabe01f4162"
+  },
+  {
+    "uuid": "b46c09e7-b2c5-4d3d-a506-daa04c123a5d",
+    "frame_data_uuid": "c4d5d2db-bd8e-4bd4-80ee-7b48dca6e47d",
+    "instance_uuid": "04e1e5d2-1a72-42c0-ac3b-7653ed5475a9",
+    "visibility_level": 4,
+    "annotation_type_name": "bbox_image3d",
+    "is_lidar_synced": true,
+    "geometry": {
+      "is_visible": false,
+      "bbox_image3d": [
+        [
+          -3291.124705197199,
+          -1935.7878818058937,
+          -1945.461572754247,
+          -3309.1340332419163,
+          -7116.717821232532,
+          -2754.8134347905448,
+          -2776.895857238875,
+          -7201.909703982565
+        ],
+        [
+          617.3074643772829,
+          614.7527266356435,
+          1007.9461003814682,
+          1149.2577740685629,
+          656.0984763776086,
+          632.6316200977935,
+          1364.061713209989,
+          2076.991713576324
+        ]
+      ]
+    },
+    "num_pts": null,
+    "attribute": {
+      "vehicle_state": "stopped"
+    },
+    "description": null,
+    "prev": "2faf5e0a-1891-4c9d-9d90-31531c01c18c",
+    "next": "efa78ae2-f4bc-4669-b50b-45c7428de41c"
+  },
+  {
+    "uuid": "76394cd3-1732-486b-b30d-f672d097f14b",
+    "frame_data_uuid": "ae6becc7-1c55-4e29-a0fc-51e8df5a36a3",
+    "instance_uuid": "04e1e5d2-1a72-42c0-ac3b-7653ed5475a9",
+    "visibility_level": 4,
+    "annotation_type_name": "bbox_image3d",
+    "is_lidar_synced": true,
+    "geometry": {
+      "is_visible": false,
+      "bbox_image3d": [
+        [
+          -178483.7133305248,
+          -192482.89742335217,
+          -192562.85953889726,
+          -178563.67545235538,
+          -105160.45916783751,
+          -119159.64326082925,
+          -119239.60537621014,
+          -105240.4212898326
+        ],
+        [
+          -3352.685348400464,
+          -2719.4355988935085,
+          26403.916593537608,
+          25770.666843860534,
+          -2312.0637661364653,
+          -1678.8140165748443,
+          27444.5381759024,
+          26811.28842627998
+        ]
+      ]
+    },
+    "num_pts": null,
+    "attribute": {
+      "vehicle_state": "stopped"
+    },
+    "description": null,
+    "prev": "27f23283-cd32-4ef3-b5aa-a2d1b6596c2a",
+    "next": "08aa536e-1f1a-4bb5-b199-51cc0a407407"
+  },
+  {
+    "uuid": "e5083d52-df93-454d-9745-6a9cd54c19e1",
+    "frame_data_uuid": "a412788b-9025-45e2-9b1f-16718bc5a751",
+    "instance_uuid": "04e1e5d2-1a72-42c0-ac3b-7653ed5475a9",
+    "visibility_level": 4,
+    "annotation_type_name": "bbox_image3d",
+    "is_lidar_synced": true,
+    "geometry": {
+      "is_visible": false,
+      "bbox_image3d": [
+        [
+          50858.66842812249,
+          19235.48921288655,
+          19069.68721848325,
+          50692.86642819132,
+          59672.78008812333,
+          28049.600872887393,
+          27883.798872956693,
+          59506.97809148668
+        ],
+        [
+          -11296.593294206961,
+          -11290.93612141439,
+          17720.393148575284,
+          17714.735975933632,
+          -6881.459328064718,
+          -6875.802155272142,
+          22135.527114768054,
+          22129.869942285615
+        ]
+      ]
+    },
+    "num_pts": null,
+    "attribute": {
+      "vehicle_state": "stopped"
+    },
+    "description": null,
+    "prev": "160bc2b3-c7e9-4f4c-8dac-6b4d269140c1",
+    "next": "bf64b72f-18d7-4fb8-b2cc-a643b9e4d11f"
+  }
+]

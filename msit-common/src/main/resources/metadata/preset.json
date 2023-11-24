@@ -1,0 +1,449 @@
+{
+  "name": "km_dynamic_movable_object",
+  "version": "0.7.3",
+  "description": "카카오모빌리티 동적객체, 이동가능한 객체 분류체계",
+  "author": "Kakao Mobility Corp.",
+  "category": {
+    "name": "km_total_category",
+    "version": "0.1.0",
+    "description": "카카오모빌리티 객체 카테고리",
+    "contents": [
+      {
+        "label": "동적객체",
+        "value": "dynamic_object",
+        "description": "자체의 동력으로 위치를 변화시킬 수 있는 객체",
+        "children": [
+          {
+            "label": "차량",
+            "value": "vehicle",
+            "description": "기계장치에 의해 움직이는 동적 장치",
+            "default_wlh": [
+              1.8,
+              4.8,
+              1.5
+            ],
+            "attribute": [
+              "vehicle_state"
+            ],
+            "children": [
+              {
+                "label": "승용차",
+                "value": "car",
+                "description": "15인 이하를 운송하는 소형 승합차",
+                "default_wlh": [
+                  1.8,
+                  4.8,
+                  1.5
+                ]
+              },
+              {
+                "label": "트럭",
+                "value": "truck",
+                "description": "짐을 실어 나를 때 사용하는 차량으로 짐칸이 구분된 차량",
+                "default_wlh": [
+                  1.8,
+                  5.1,
+                  2
+                ]
+              },
+              {
+                "label": "버스",
+                "value": "bus",
+                "description": "16인 이상을 운송하는 중대형 승합차",
+                "default_wlh": [
+                  2.5,
+                  11,
+                  3.4
+                ]
+              },
+              {
+                "label": "오토바이",
+                "value": "motorcycle",
+                "description": "바퀴가 두 개 달린 이륜자동차의 일종으로 엔진의 힘으로 바퀴를 구동시키는 교통수단",
+                "default_wlh": [
+                  0.7,
+                  1.9,
+                  1.6
+                ],
+                "attribute": [
+                  "vehicle_state",
+                  "rider_state"
+                ]
+              },
+              {
+                "label": "자전거",
+                "value": "bicycle",
+                "description": "일반적으로 바퀴 두 개로 구성되어 사람의 힘으로 움직일 수 있는 교통수단",
+                "default_wlh": [
+                  0.5,
+                  1.7,
+                  1.6
+                ],
+                "attribute": [
+                  "vehicle_state",
+                  "rider_state"
+                ]
+              },
+              {
+                "label": "개인형이동수단",
+                "value": "personal_mobility",
+                "description": "전기를 이용해 움직이는 저속의 소형 1인용 운송수단으로 전동휠, 전동킥보드 등의 이동수단",
+                "default_wlh": [
+                  0.5,
+                  1.2,
+                  1.6
+                ],
+                "attribute": [
+                  "vehicle_state",
+                  "rider_state"
+                ]
+              },
+              {
+                "label": "경찰차",
+                "value": "police_car",
+                "description": "순찰, 현장출동 등 경찰의 다양한 업무 수행을 위해 제작된 긴급자동차",
+                "default_wlh": [
+                  1.8,
+                  4.8,
+                  1.5
+                ]
+              },
+              {
+                "label": "구급차",
+                "value": "ambulence",
+                "description": "응급환자의 이송, 응급의료를 위한 장비 등의 운반 등 응급의료 목적에 이용되는 이송수단",
+                "default_wlh": [
+                  1.8,
+                  4.8,
+                  1.5
+                ]
+              },
+              {
+                "label": "건설차량",
+                "value": "construction_vehicle",
+                "description": "토사 등을 직접 굴삭, 적재, 운반, 운송, 살포 및 다짐 등의 작업을 하는 건설기계로서 불도저, 굴삭기, 로더, 스크레이퍼, 덤프트럭, 모터그레이더, 롤러, 천공기, 항타 및 항발기 등의 차량",
+                "default_wlh": [
+                  2.5,
+                  8.7,
+                  3.0
+                ]
+              },
+              {
+                "label": "소방차",
+                "value": "fire_truck",
+                "description": "소방 장비를 갖추고 있는 특수차",
+                "default_wlh": [
+                  2.2,
+                  6.8,
+                  2.7
+                ]
+              },
+              {
+                "label": "트레일러",
+                "value": "trailer",
+                "description": "동력 없이 견인차에 연결하여 짐이나 사람을 실어 나르는 차량",
+                "default_wlh": [
+                  2.4,
+                  12,
+                  1.7
+                ]
+              },
+              {
+                "label": "기타 차량",
+                "value": "other_vehicle",
+                "description": "정의되지 않은 기타 차량",
+                "default_wlh": [
+                  1.8,
+                  4.8,
+                  1.5
+                ]
+              }
+            ]
+          },
+          {
+            "label": "사람",
+            "value": "human",
+            "description": "포유강 영장목 사람상과(유인원과) 사람과 사람속에 속하는 동물",
+            "default_wlh": [
+              0.5,
+              0.5,
+              1.6
+            ],
+            "attribute": [
+              "human_state"
+            ],
+            "children": [
+              {
+                "label": "보행자",
+                "value": "pedestrian",
+                "description": "도로환경에 존재하는 사람",
+                "default_wlh": [
+                  0.5,
+                  0.5,
+                  1.6
+                ]
+              },
+              {
+                "label": "경찰관",
+                "value": "police_officer",
+                "description": "정복, 근무복, 기동복 등 경찰제복을 착용한 사람",
+                "default_wlh": [
+                  0.5,
+                  0.5,
+                  1.6
+                ]
+              },
+              {
+                "label": "건설근로자",
+                "value": "construction_worker",
+                "description": "공사현장 근로자로서 안전대, 안전모, 안전화, 작업복 등 안전보호 장비를 착용한 사람",
+                "default_wlh": [
+                  0.5,
+                  0.5,
+                  1.6
+                ]
+              },
+              {
+                "label": "소방관",
+                "value": "firefighter",
+                "description": "화재를 예방, 경계, 진압하기 위해 보호복, 방화복 등 보호장비를 착용한 사람",
+                "default_wlh": [
+                  0.5,
+                  0.5,
+                  1.6
+                ]
+              },
+              {
+                "label": "유모차",
+                "value": "stroller",
+                "description": "유아를 태워서 밀고 다니는 수레 장치",
+                "default_wlh": [
+                  0.7,
+                  0.5,
+                  1.1
+                ]
+              },
+              {
+                "label": "휠체어",
+                "value": "wheelchair",
+                "description": "등받이가 장착된 의자에 4개의 바퀴가 장착되어진 수동식 또는 전동식 의자차",
+                "default_wlh": [
+                  0.7,
+                  0.9,
+                  1.1
+                ]
+              }
+            ]
+          },
+          {
+            "label": "동물",
+            "value": "animal",
+            "description": "사람을 제외한 길짐승, 날짐승, 물짐승 따위를 통틀어 이르는 말",
+            "default_wlh": [
+              0.5,
+              1.0,
+              0.5
+            ],
+            "attribute": [
+              "animal_state"
+            ],
+            "children": [
+              {
+                "label": "지상동물",
+                "value": "ground_animal",
+                "description": "육지에서 살아가는 동물로서 날지 못하는 동물",
+                "default_wlh": [
+                  0.5,
+                  1.0,
+                  0.5
+                ]
+              },
+              {
+                "label": "새",
+                "value": "bird",
+                "description": "하늘을 자유로이 날 수 있는 동물",
+                "default_wlh": [
+                  0.5,
+                  0.5,
+                  0.5
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "이동가능한 객체",
+        "value": "movable_object",
+        "description": "임시로 설치되거나 고정되지 않은 객체로 쉽게 이동가능한 객체",
+        "children": [
+          {
+            "label": "트래픽콘",
+            "value": "traffic_cone",
+            "description": "임시로 차량의 주행을 막기 위해 도로에 배치된 꼬깔, 드럼 등의 플라스틱 객체",
+            "default_wlh": [
+              0.5,
+              0.5,
+              1.0
+            ]
+          },
+          {
+            "label": "교통장벽",
+            "value": "barrier",
+            "description": "차량이 위험한 영역에 진입하지 못하도록 진입을 막기 위해 도로에 배치된 장애물로 플라스틱, 철제, 콘크리트 등 다양한 소재로 구성된 객체",
+            "default_wlh": [
+              0.4,
+              2.0,
+              1.0
+            ]
+          },
+          {
+            "label": "잔해",
+            "value": "debris",
+            "description": "부서지거나 못 쓰게 되어 남아있는 것으로 도로 환경에 이질적인 물질, 재료 및 물체",
+            "default_wlh": [
+              0.5,
+              0.5,
+              0.5
+            ]
+          },
+          {
+            "label": "기타 이동가능한 객체",
+            "value": "other_movable_object",
+            "description": "정의되지 않은 기타 이동가능 객체",
+            "default_wlh": [
+              0.5,
+              0.5,
+              0.5
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "attribute": {
+    "name": "km_total_attribute",
+    "version": "0.1.2",
+    "description": "카카오모빌리티 객체 속성",
+    "contents": [
+      {
+        "label": "차량 이동상태",
+        "value": "vehicle_state",
+        "type": "single_select",
+        "list": [
+          {
+            "label": "이동",
+            "value": "moving"
+          },
+          {
+            "label": "정지",
+            "value": "stopped"
+          }
+        ]
+      },
+      {
+        "label": "라이더 탑승상태",
+        "value": "rider_state",
+        "type": "single_select",
+        "list": [
+          {
+            "label": "탑승",
+            "value": "with_rider"
+          },
+          {
+            "label": "미탑승",
+            "value": "without_rider"
+          }
+        ]
+      },
+      {
+        "label": "사람 이동상태",
+        "value": "human_state",
+        "type": "single_select",
+        "list": [
+          {
+            "label": "이동",
+            "value": "moving"
+          },
+          {
+            "label": "서있음",
+            "value": "standing"
+          },
+          {
+            "label": "앉아있음",
+            "value": "sitting"
+          },
+          {
+            "label": "누워있음",
+            "value": "lying_down"
+          }
+        ]
+      },
+      {
+        "label": "동물 이동상태",
+        "value": "animal_state",
+        "type": "single_select",
+        "list": [
+          {
+            "label": "이동",
+            "value": "moving"
+          },
+          {
+            "label": "정지",
+            "value": "stopped"
+          }
+        ]
+      }
+    ]
+  },
+  "visibility": {
+    "name": "km_total_visibility",
+    "version": "0.1.0",
+    "description": "카카오모빌리티 객체 가시성",
+    "contents": [
+      {
+        "level": 1,
+        "description": "0 ~ 10%, 전체 객체에 대한 가시성"
+      },
+      {
+        "level": 2,
+        "description": "10 ~ 40%, 전체 객체에 대한 가시성"
+      },
+      {
+        "level": 3,
+        "description": "40 ~ 70%, 전체 객체에 대한 가시성"
+      },
+      {
+        "level": 4,
+        "description": "70 ~ 100%, 전체 객체에 대한 가시성"
+      }
+    ]
+  },
+  "annotation_type": {
+    "name": "km_total_annotation_type",
+    "version": "0.1.0",
+    "description": "카카오모빌리티 객체 어노테이션 타입",
+    "contents": [
+      {
+        "name": "bbox_pcd3d",
+        "description": "라이다 데이터 기반 3D 바운딩 박스"
+      },
+      {
+        "name": "bbox_img3d",
+        "description": "카메라 데이터 기반 3D 바운딩 박스"
+      },
+      {
+        "name": "bbox_img2d",
+        "description": "카메라 데이터 기반 2D 바운딩 박스"
+      },
+      {
+        "name": "segm_img2d",
+        "description": "카메라 데이터 기반 세그멘테이션"
+      },
+      {
+        "name": "segm_pcd3d",
+        "description": "라이다 데이터 기반 세그멘테이션"
+      }
+    ]
+  }
+}

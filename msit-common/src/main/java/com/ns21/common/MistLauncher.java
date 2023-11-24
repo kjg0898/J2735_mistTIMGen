@@ -15,22 +15,22 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-public class mistLauncher extends Launcher {
+public class MistLauncher extends Launcher {
 
-    private final String LOG_FORMMAT_HEAD = "------------------------------------------------------------------------------ {} ------------------------------------------------------------------------------";
-    private final String LOG_FORMMAT_END = "------------------------------------------------------------------------------ {} ------------------------------------------------------------------------------";
+    public final String LOG_FORMMAT_HEAD = "------------------------------------- {} -------------------------------------";
+    public final String LOG_FORMMAT_END = "------------------------------------- {} -------------------------------------";
     private final String VERTX_PROFILE_ACTIVE_KEY = "vertx.profile.active";
     private final String DEFAULT_CONFIG_FILE = "application.yaml";
 
 
-    private static final Logger logger = LoggerFactory.getLogger(mistLauncher.class);
+    private static final Logger logger = LoggerFactory.getLogger(MistLauncher.class);
 
     public static void main(String[] args) {
 
         List liArguments = Arrays.asList(args);
         logger.info("arguments: {}", liArguments);
 
-        new mistLauncher().dispatch(args);
+        new MistLauncher().dispatch(args);
     }
 
     @Override
@@ -40,7 +40,7 @@ public class mistLauncher extends Launcher {
         JsonObject conf = null;
 
         // -conf argument로 전달받은 설정 파일이 있으면 기본 설정파일을 읽어 들이지 않음.
-        if( config.size() == 0 ) {
+        if( config.isEmpty() ) {
             // application.json 파일 로딩 하여 config 파라미터 객체에 추가
             logger.info("config size is 0. so default_config setting");
             conf = readConfigStream(DEFAULT_CONFIG_FILE);
