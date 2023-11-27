@@ -42,7 +42,7 @@ subprojects {
         implementation 'org.yaml:snakeyaml:2.0'
 
         //log
-        implementation 'ch.qos.logback:logback-classic:1.4.1'
+        implementation 'ch.qos.logback:logback-classic:1.4.8'
         implementation 'org.slf4j:slf4j-api:2.0.3'
 
         //test
