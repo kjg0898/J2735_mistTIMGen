@@ -4,6 +4,7 @@ import com.ns21.common.enums.j2735.J2735MessageID;
 import com.ns21.common.mist.codec.J2735ToJson;
 import com.ns21.common.mist.codec.JsonToJ2735;
 import com.ns21.common.mist.dto.*;
+import com.ns21.common.mist.parser.MetaDataExtracting;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.json.JsonObject;
 import org.slf4j.Logger;
@@ -26,16 +27,12 @@ public class TimMessageCreator extends AbstractVerticle {
     @Override
     public void start() throws Exception {
 
-        // DTO 객체들의 초기화
-        DatasetDto datasetDto = new DatasetDto();
-        EgoPoseDto egoPoseDto = new EgoPoseDto();
-        FrameAnnotationDto frameAnnotationDto = new FrameAnnotationDto();
-        LogDto logDto = new LogDto();
-        PresetDto presetDto = new PresetDto();
-        SensorDto sensorDto = new SensorDto();
+        // 메타데이터 추출 및 처리
+        MetaDataExtracting extractor = new MetaDataExtracting();
+        extractor.processFiles();
 
         // TimMessageCreator를 통해 JSON 메시지 생성
-        String jsonMessage = TimValueCreator.createTimMessage(datasetDto, egoPoseDto, frameAnnotationDto, logDto, presetDto, sensorDto);
+        String jsonMessage = TimValueCreator.createTimMessage();
 
         //메세지 아이디 추가
         JsonObject originalJsonObject  = new JsonObject(jsonMessage);

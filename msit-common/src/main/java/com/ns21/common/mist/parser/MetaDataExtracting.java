@@ -2,6 +2,7 @@ package com.ns21.common.mist.parser;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ns21.common.mist.DataStorage;
 import com.ns21.common.mist.dto.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,26 +23,124 @@ import java.util.List;
  * -----------------------------------------------------------
  * 2023-11-23        kjg08           최초 생성
  */
-public class MetaDataExtracting  {
+public class MetaDataExtracting {
     private static final Logger logger = LoggerFactory.getLogger(MetaDataExtracting.class);
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
-    // 메인 메서드
-    public static void main(String[] args) {
-        MetaDataExtracting extractor = new MetaDataExtracting();
-        extractor.processFiles();
-    }
+    /*   // 메인 메서드
+       public static void main(String[] args) {
+           MetaDataExtracting extractor = new MetaDataExtracting();
+           extractor.processFiles();
+       }*/
     // 파일 처리 메서드
     public void processFiles() {
-        processFile("msit-common/src/main/resources/metadata/dataset.json", new TypeReference<List<DatasetDto>>() {});
-        processFile("msit-common/src/main/resources/metadata/ego_pose.json", new TypeReference<List<EgoPoseDto>>() {});
-        processFile("msit-common/src/main/resources/metadata/frame_annotation.json", new TypeReference<List<FrameAnnotationDto>>() {});
-        processFile("msit-common/src/main/resources/metadata/frame_data.json", new TypeReference<List<FrameDataDto>>() {});
-        processFile("msit-common/src/main/resources/metadata/frame.json", new TypeReference<List<FrameDto>>() {});
-        processFile("msit-common/src/main/resources/metadata/instance.json", new TypeReference<List<InstanceDto>>() {});
-        processFile("msit-common/src/main/resources/metadata/log.json", new TypeReference<List<LogDto>>() {});
-        processFile("msit-common/src/main/resources/metadata/preset.json", new TypeReference<PresetDto>() {});
-        processFile("msit-common/src/main/resources/metadata/sensor.json", new TypeReference<List<SensorDto>>() {});
+        String path = "msit-common/src/main/resources/metadata/";
+        processDatasets(path + "dataset.json");
+        processEgoPoses(path + "ego_pose.json");
+        processFrameAnnotations(path + "frame_annotation.json");
+        processFrameDatas(path + "frame_data.json");
+        processFrames(path + "frame.json");
+        processInstances(path + "instance.json");
+        processLogs(path + "log.json");
+        processPresets(path + "preset.json");
+        processSensors(path + "sensor.json");
+    }
+
+
+    public void processDatasets(String filePath) {
+        try {
+            List<DatasetDto> datasets = readDataFromFile(filePath, new TypeReference<List<DatasetDto>>() {
+            });
+            DataStorage.getInstance().storeDatasets(datasets);
+        } catch (IOException e) {
+            logger.error("Error reading or parsing Datasets file: " + filePath, e);
+        }
+    }
+
+    public void processEgoPoses(String filePath) {
+        try {
+            List<EgoPoseDto> egoPoses = readDataFromFile(filePath, new TypeReference<List<EgoPoseDto>>() {
+            });
+            DataStorage.getInstance().storeEgoPoses(egoPoses);
+        } catch (IOException e) {
+            logger.error("Error reading or parsing EgoPoses file: " + filePath, e);
+        }
+    }
+
+    public void processFrameAnnotations(String filePath) {
+        try {
+            List<FrameAnnotationDto> frameAnnotations = readDataFromFile(filePath, new TypeReference<List<FrameAnnotationDto>>() {
+            });
+            DataStorage.getInstance().storeFrameAnnotations(frameAnnotations);
+        } catch (IOException e) {
+            logger.error("Error reading or parsing FrameAnnotations file: " + filePath, e);
+        }
+    }
+
+    public void processFrameDatas(String filePath) {
+        try {
+            List<FrameDataDto> frameDatas = readDataFromFile(filePath, new TypeReference<List<FrameDataDto>>() {
+            });
+            DataStorage.getInstance().storeFrameDatas(frameDatas);
+        } catch (IOException e) {
+            logger.error("Error reading or parsing FrameDatas file: " + filePath, e);
+        }
+    }
+
+    public void processFrames(String filePath) {
+        try {
+            List<FrameDto> frames = readDataFromFile(filePath, new TypeReference<List<FrameDto>>() {
+            });
+            DataStorage.getInstance().storeFrames(frames);
+        } catch (IOException e) {
+            logger.error("Error reading or parsing Frames file: " + filePath, e);
+        }
+    }
+
+    public void processInstances(String filePath) {
+        try {
+            List<InstanceDto> instances = readDataFromFile(filePath, new TypeReference<List<InstanceDto>>() {
+            });
+            DataStorage.getInstance().storeInstances(instances);
+        } catch (IOException e) {
+            logger.error("Error reading or parsing Instances file: " + filePath, e);
+        }
+    }
+
+    public void processLogs(String filePath) {
+        try {
+            List<LogDto> logs = readDataFromFile(filePath, new TypeReference<List<LogDto>>() {
+            });
+            DataStorage.getInstance().storeLogs(logs);
+        } catch (IOException e) {
+            logger.error("Error reading or parsing Logs file: " + filePath, e);
+        }
+    }
+
+    public void processPresets(String filePath) {
+        try {
+            PresetDto presets = readDataFromFile(filePath, new TypeReference<PresetDto>() {
+            });
+            DataStorage.getInstance().storePresets(presets);
+        } catch (IOException e) {
+            logger.error("Error reading or parsing Presets file: " + filePath, e);
+        }
+    }
+
+    public void processSensors(String filePath) {
+        try {
+            List<SensorDto> sensors = readDataFromFile(filePath, new TypeReference<List<SensorDto>>() {
+            });
+            DataStorage.getInstance().storeSensors(sensors);
+        } catch (IOException e) {
+            logger.error("Error reading or parsing Sensors file: " + filePath, e);
+        }
+    }
+
+
+    private <T> T readDataFromFile(String filePath, TypeReference<T> typeReference) throws IOException {
+        String fileContent = new String(Files.readAllBytes(new File(filePath).toPath()));
+        return objectMapper.readValue(fileContent, typeReference);
     }
 
     // 파일 읽기 및 파싱 메서드
@@ -53,6 +152,9 @@ public class MetaDataExtracting  {
             // 데이터 처리
             if (dataList instanceof List) {
                 ((List<?>) dataList).forEach(data -> logger.info(data.toString()));
+                // 여기에 DataStorage에 저장하는 로직 추가
+                DataStorage.getInstance().storeDatasets((List<DatasetDto>) dataList);
+
             } else {
                 logger.info(dataList.toString());
             }

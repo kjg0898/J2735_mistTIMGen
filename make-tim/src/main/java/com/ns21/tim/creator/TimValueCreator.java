@@ -1,8 +1,8 @@
 package com.ns21.tim.creator;
 
 
-import ch.qos.logback.core.joran.sanity.Pair;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ns21.common.mist.DataStorage;
 import com.ns21.common.mist.dto.*;
 import com.ns21.common.util.MetaDataConvertUtil;
 import org.slf4j.Logger;
@@ -25,15 +25,34 @@ import java.util.*;
 public class TimValueCreator {
     private static final Logger logger = LoggerFactory.getLogger(TimValueCreator.class);
 
-    public static String createTimMessage(DatasetDto datasetDto, EgoPoseDto egoPoseDto, FrameAnnotationDto frameAnnotationDto, LogDto logDto, PresetDto presetDto, SensorDto sensorDto) throws IOException {
+    public static String createTimMessage() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         int i = 0;
+
+        // DataStorage에서 데이터 가져오기
+        List<DatasetDto> datasetList = DataStorage.getInstance().getDatasets();
+        List<EgoPoseDto> egoPoseList = DataStorage.getInstance().getEgoPoses();
+        List<FrameAnnotationDto> frameAnnotationList = DataStorage.getInstance().getFrameAnnotations();
+        List<LogDto> logList = DataStorage.getInstance().getLogs();
+        PresetDto presetDto = DataStorage.getInstance().getPreset();
+        List<SensorDto> sensorList = DataStorage.getInstance().getSensors();
+
+        // 데이터가 있는 경우에만
+        DatasetDto datasetDto = datasetList.isEmpty() ? null : datasetList.get(0);
+        EgoPoseDto egoPoseDto = egoPoseList.isEmpty() ? null : egoPoseList.get(0);
+        FrameAnnotationDto frameAnnotationDto = frameAnnotationList.isEmpty() ? null : frameAnnotationList.get(0);
+        LogDto logDto = logList.isEmpty() ? null : logList.get(0);
+        SensorDto sensorDto = sensorList.isEmpty() ? null : sensorList.get(0);
+        // PresetDto의 null 체크 (데이터가 없는 경우에 대한 처리)
+        if (presetDto == null) {
+            presetDto = new PresetDto();
+        }
         // Construct the JSON message
         Map<String, Object> timMessage = new LinkedHashMap<>();
 
-        //  EgoPoseDto 객체에서 타임스탬프 가져와서 타임스탬프를 연도와 시간으로 변환
-        // String timestamp = egoPoseDto.getTimestamp();
-        // String[] convertedTimestamp = MetaDataConvertUtil.convertTimestamp(timestamp);
+        // EgoPoseDto 객체에서 타임스탬프 가져와서 타임스탬프를 연도와 시간으로 변환
+        String timestamp = egoPoseDto.getTimestamp();
+        String[] convertedTimestamp = MetaDataConvertUtil.convertTimestamp(timestamp);
 
         // Add msgCnt
         timMessage.put("msgCnt", i++);
@@ -46,8 +65,8 @@ public class TimValueCreator {
         dataFrame.put("msgId", Map.of("furtherInfoID", "0000"));
 
         // 변환된 연도와 시간을 dataFrame에 넣기
-        //  dataFrame.put("startYear", convertedTimestamp[0]);
-        //  dataFrame.put("startTime", convertedTimestamp[1]);
+        dataFrame.put("startYear", convertedTimestamp[0]);
+        dataFrame.put("startTime", convertedTimestamp[1]);
 
         dataFrame.put("duratonTime", 0);
         dataFrame.put("priority", 0);
