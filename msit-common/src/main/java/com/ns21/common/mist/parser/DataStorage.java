@@ -1,4 +1,4 @@
-package com.ns21.common.mist;
+package com.ns21.common.mist.parser;
 
 import com.ns21.common.mist.dto.*;
 

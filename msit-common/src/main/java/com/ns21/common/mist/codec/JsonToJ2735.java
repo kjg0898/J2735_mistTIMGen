@@ -34,7 +34,7 @@ public class JsonToJ2735 {
             throw new JsonToJ2735Exception("Input data is null or empty");
         }
 
-        logger.info(" Converting JSON to J2735 format. Input data: {}", data);
+        logger.info("Input Meta_JSON data: {}", data);
         try (ByteArrayInputStream bai = new ByteArrayInputStream(data.getBytes());
              ByteArrayOutputStream bao = new ByteArrayOutputStream()) {
             logger.info("{}", CODER_TYPE.JSON.getDesc());

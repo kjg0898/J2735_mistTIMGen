@@ -1,5 +1,6 @@
 package com.ns21.rsa;
 
+import com.ns21.rsa.creator.RsaMessageCreator;
 import io.vertx.core.Vertx;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,14 +21,16 @@ public class RsaLauncher {
 
     public static void main(String[] args) {
         Vertx vertx = Vertx.vertx();
-        vertx.deployVerticle(new ExecutionRsaModule(), res -> {
-            if (res.succeeded()) {
-                logger.info("Verticle deployed successfully!");
-                vertx.close(); // Vert.x 인스턴스를 종료합니다.
-            } else {
-                logger.info("Failed to deploy verticle: " + res.cause());
-                vertx.close(); // 실패한 경우에도 Vert.x 인스턴스를 종료합니다.
+
+        // RsaMessageCreator Verticle 배포
+        vertx.deployVerticle(new RsaMessageCreator(), res -> {
+            if (res.failed()) {
+                logger.info("Failed to deploy RsaMessageCreator verticle: " + res.cause());
+                vertx.close(); // 실패한 경우 Vert.x 인스턴스를 종료합니다.
+                return;
             }
+            logger.info("RsaMessageCreator Verticle deployed successfully!");
         });
+
     }
 }

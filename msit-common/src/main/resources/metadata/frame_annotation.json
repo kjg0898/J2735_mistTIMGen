@@ -3,6 +3,7 @@
     "uuid": "a2f91995-2207-4c5b-bfaa-255fd66bbd9a",
     "frame_data_uuid": "1bfbe81e-e6d2-40ed-8122-2b34cd153257",
     "instance_uuid": "04e1e5d2-1a72-42c0-ac3b-7653ed5475a9",
+    "visibility_level": 4,
     "annotation_type_name": "bbox_pcd3d",
     "is_lidar_synced": false,
     "geometry": {

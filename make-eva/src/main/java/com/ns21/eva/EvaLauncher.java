@@ -1,12 +1,13 @@
 package com.ns21.eva;
 
+import com.ns21.eva.creator.EvaMessageCreator;
 import io.vertx.core.Vertx;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * packageName    : com.ns21.rsa
- * fileName       : RsaLauncher.java
+ * packageName    : com.ns21.eva
+ * fileName       : EvaLauncher.java
  * author         : kjg08
  * date           : 2023-11-17
  * description    :
@@ -20,14 +21,16 @@ public class EvaLauncher {
 
     public static void main(String[] args) {
         Vertx vertx = Vertx.vertx();
-        vertx.deployVerticle(new ExecutionEvaModule(), res -> {
-            if (res.succeeded()) {
-                logger.info("Verticle deployed successfully!");
-                vertx.close(); // Vert.x 인스턴스를 종료합니다.
-            } else {
-                logger.info("Failed to deploy verticle: " + res.cause());
-                vertx.close(); // 실패한 경우에도 Vert.x 인스턴스를 종료합니다.
+
+        // EvaMessageCreator Verticle 배포
+        vertx.deployVerticle(new EvaMessageCreator(), res -> {
+            if (res.failed()) {
+                logger.info("Failed to deploy EvaMessageCreator verticle: " + res.cause());
+                vertx.close(); // 실패한 경우 Vert.x 인스턴스를 종료합니다.
+                return;
             }
+            logger.info("EvaMessageCreator Verticle deployed successfully!");
         });
+
     }
 }

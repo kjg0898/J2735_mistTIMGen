@@ -2,7 +2,6 @@ package com.ns21.common.mist.parser;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ns21.common.mist.DataStorage;
 import com.ns21.common.mist.dto.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,11 +26,6 @@ public class MetaDataExtracting {
     private static final Logger logger = LoggerFactory.getLogger(MetaDataExtracting.class);
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
-    /*   // 메인 메서드
-       public static void main(String[] args) {
-           MetaDataExtracting extractor = new MetaDataExtracting();
-           extractor.processFiles();
-       }*/
     // 파일 처리 메서드
     public void processFiles() {
         String path = "msit-common/src/main/resources/metadata/";
@@ -141,25 +135,5 @@ public class MetaDataExtracting {
     private <T> T readDataFromFile(String filePath, TypeReference<T> typeReference) throws IOException {
         String fileContent = new String(Files.readAllBytes(new File(filePath).toPath()));
         return objectMapper.readValue(fileContent, typeReference);
-    }
-
-    // 파일 읽기 및 파싱 메서드
-    public <T> void processFile(String filePath, TypeReference<T> typeReference) {
-        try {
-            String fileContent = new String(Files.readAllBytes(new File(filePath).toPath()));
-            T dataList = objectMapper.readValue(fileContent, typeReference);
-
-            // 데이터 처리
-            if (dataList instanceof List) {
-                ((List<?>) dataList).forEach(data -> logger.info(data.toString()));
-                // 여기에 DataStorage에 저장하는 로직 추가
-                DataStorage.getInstance().storeDatasets((List<DatasetDto>) dataList);
-
-            } else {
-                logger.info(dataList.toString());
-            }
-        } catch (IOException e) {
-            logger.error("Error reading or parsing file: " + filePath, e);
-        }
     }
 }

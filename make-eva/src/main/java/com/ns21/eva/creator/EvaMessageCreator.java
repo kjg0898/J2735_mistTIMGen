@@ -1,4 +1,4 @@
-package com.ns21.tim.creator;
+package com.ns21.eva.creator;
 
 import com.ns21.common.enums.j2735.J2735MessageID;
 import com.ns21.common.mist.codec.J2735ToJson;
@@ -10,8 +10,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * packageName    : com.ns21.tim.creator
- * fileName       : TimMessageCreator.java
+ * packageName    : com.ns21.eva.creator
+ * fileName       : EvaMessageCreator.java
  * author         : kjg08
  * date           : 2023-11-24
  * description    :
@@ -20,8 +20,8 @@ import org.slf4j.LoggerFactory;
  * -----------------------------------------------------------
  * 2023-11-24        kjg08           최초 생성
  */
-public class TimMessageCreator extends AbstractVerticle {
-    private static final Logger logger = LoggerFactory.getLogger(TimMessageCreator.class);
+public class EvaMessageCreator extends AbstractVerticle {
+    private static final Logger logger = LoggerFactory.getLogger(EvaMessageCreator.class);
 
     @Override
     public void start() throws Exception {
@@ -32,15 +32,15 @@ public class TimMessageCreator extends AbstractVerticle {
 
         //메세지 예시
         // String jsonMessage =
-        String jsonMessage = TimValueCreator.createTimMessage();
+        String jsonMessage = EvaValueCreator.createEvaMessage();
 
         //메세지 아이디 추가
         JsonObject originalJsonObject = new JsonObject(jsonMessage);
         // 새로운 최상위 JsonObject 생성
         JsonObject newJsonObject = new JsonObject();
         // messageId 추가
-        int timMessgeId = J2735MessageID.TIM.getId();
-        newJsonObject.put("messageId", timMessgeId);
+        int evaMessgeId = J2735MessageID.EVA.getId();
+        newJsonObject.put("messageId", evaMessgeId);
         // 원래 객체를 'value' 라는 키로 새 객체에 추가
         newJsonObject.put("value", originalJsonObject);
         // 최종 JSON 문자열로 변환
