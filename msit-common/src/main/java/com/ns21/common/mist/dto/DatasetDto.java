@@ -20,8 +20,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class DatasetDto {
-    private String uuid;
+public class DatasetDto extends BaseDto {
     @JsonProperty("log_uuid")
     private String logUuid;
     @JsonProperty("scenario_names")

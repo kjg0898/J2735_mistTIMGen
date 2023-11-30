@@ -21,7 +21,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class PresetDto {
+public class PresetDto  {
     private String name;
     private String version;
     private String description;

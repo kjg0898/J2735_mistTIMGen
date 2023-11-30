@@ -9,10 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static com.ns21.common.util.MetaDataConvertUtil.*;
 
@@ -34,7 +31,6 @@ public class EvaValueCreator {
 
     public static String createEvaMessage() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-
         // DataStorage에서 데이터 가져오기
         List<EgoPoseDto> egoPoseList = DataStorage.getInstance().getEgoPoses();
         List<FrameAnnotationDto> frameAnnotationList = DataStorage.getInstance().getFrameAnnotations();
@@ -53,14 +49,14 @@ public class EvaValueCreator {
         Map<String, Object> evaMessage = new LinkedHashMap<>();
 
         // EgoPoseDto 객체에서 translation 가져와서 translation를 위경고도로 변환
-        List<Double> translation = egoPoseDto.getTranslation();
+        List<Double> translation = Objects.requireNonNull(egoPoseDto).getTranslation();
         double utmX = translation.get(0); // ex)326865.27824246883
         double utmY = translation.get(1); // ex)4147694.5101196766
         int utmZone = 52; //대한민국 대부분 지역은 52 (일부51)
         double elevation = translation.get(2); // ex)49.126053147017956
         long[] utmToLatLon = MetaDataConvertUtil.utmToLatLon(utmX, utmY, utmZone, elevation);
         // frame_annotation 의 orientation 값을 heading 값으로 변경
-        FrameAnnotationDto.Geometry geometry = frameAnnotationDto.getGeometry();
+        FrameAnnotationDto.Geometry geometry = Objects.requireNonNull(frameAnnotationDto).getGeometry();
         List<Double> orientation = geometry.getOrientation(); // geometry 에서  orientation 값을 가져옴
         //timestamp 값 분 단위,integer 타입, 527040 범위 안으로 변경하여 가져오기
         int integerTimestamp = minuteOfTheYear(egoPoseDto.getTimestamp());
@@ -89,8 +85,8 @@ public class EvaValueCreator {
 
         Map<String, Object> regExtValue = new LinkedHashMap<>();
         Map<String, Object> cits = new LinkedHashMap<>();
-        cits.put("stopID", logDto.getLocation()); //log.json 의 location //로그가 캡처된 위치/명칭
-        cits.put("text", frameDataDto.getUuid()); //frameData.json 의 uuid
+        cits.put("stopID", Objects.requireNonNull(logDto).getLocation()); //log.json 의 location //로그가 캡처된 위치/명칭
+        cits.put("text", Objects.requireNonNull(frameDataDto).getUuid()); //frameData.json 의 uuid
         regExtValue.put("cits", cits);
         regionalItem.put("regExtValue", regExtValue);
         regional.add(regionalItem);
