@@ -5,10 +5,7 @@ import org.osgeo.proj4j.CRSFactory;
 import org.osgeo.proj4j.CoordinateReferenceSystem;
 import org.osgeo.proj4j.ProjCoordinate;
 
-import java.time.Instant;
-import java.time.ZoneId;
-import java.time.ZoneOffset;
-import java.time.ZonedDateTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -164,5 +161,16 @@ public class MetaDataConvertUtil {
         utcTime.put("offset", dateTime.getOffset().getTotalSeconds());
 
         return utcTime;
+    }
+    //timestamp 값 분 단위까지만 가져와서 527040의 범위에 맞게 수정. 527040 이 넘어가면 롤오버 됨
+    public static int minuteOfTheYear(String timestampString) {
+        Instant instant = Instant.ofEpochSecond((long) Double.parseDouble(timestampString));
+        ZonedDateTime zdt = instant.atZone(ZoneId.of("UTC"));
+        int yearStart = zdt.getYear();
+        ZonedDateTime startOfYear = ZonedDateTime.of(yearStart, 1, 1, 0, 0, 0, 0, ZoneId.of("UTC"));
+        long minutesSinceYearStart = Duration.between(startOfYear, zdt).toMinutes();
+
+        // Ensure it fits within 0 to 527040
+        return (int) (minutesSinceYearStart % 527041); // Using 527041 to include 0 in the range
     }
 }

@@ -1,11 +1,14 @@
 package com.ns21.common.mist.parser;
 
 import com.ns21.common.mist.dto.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class DataStorage {
+    private static final Logger logger = LoggerFactory.getLogger(DataStorage.class);
     private static final DataStorage instance = new DataStorage();
     private final ConcurrentHashMap<String, Object> dataMap;
 
@@ -32,10 +35,10 @@ public class DataStorage {
     public void storeEgoPoses(List<EgoPoseDto> egoPoses) {
         dataMap.put("egoPoses", egoPoses);
     }
-
     @SuppressWarnings("unchecked")
     public List<EgoPoseDto> getEgoPoses() {
         return (List<EgoPoseDto>) dataMap.get("egoPoses");
+
     }
 
     // FrameAnnotationDto 저장 및 조회

@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.*;
 
-import static com.ns21.common.util.MetaDataConvertUtil.convertTimestampToUtcMap;
+import static com.ns21.common.util.MetaDataConvertUtil.*;
 
 /**
  * packageName    : com.ns21.rsa.creator
@@ -59,8 +59,8 @@ public class RsaValueCreator {
         double elevation = translation.get(2); // ex)49.126053147017956
         long[] utmToLatLon = MetaDataConvertUtil.utmToLatLon(utmX, utmY, utmZone, elevation);
 
-        //timestamp integer 로 변경, 모듈 연산을 사용하여 0~527040 범위의 값에 맞춤
-        int integerTimestamp = convertTimestampToInt(egoPoseDto.getTimestamp());
+        //timestamp 값 분 단위,integer 타입, 527040 범위 안으로 변경하여 가져오기
+        int integerTimestamp = minuteOfTheYear(egoPoseDto.getTimestamp());
         // Add msgCnt
         rsaMessage.put("msgCnt", msgCnt++);
         rsaMessage.put("timeStamp", integerTimestamp);
@@ -99,11 +99,5 @@ public class RsaValueCreator {
         rsaMessage.put("regional", regional);
 
         return mapper.writeValueAsString(rsaMessage);
-    }
-
-    public static int convertTimestampToInt(String timestampString) {
-        long timestampInSeconds = (long) Double.parseDouble(timestampString);
-        // 모듈로 연산을 사용하여 0~527040 범위의 값에 맞추기
-        return (int) (timestampInSeconds % 527041);
     }
 }

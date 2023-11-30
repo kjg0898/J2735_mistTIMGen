@@ -11,6 +11,8 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.*;
 
+import static com.ns21.common.util.MetaDataConvertUtil.minuteOfTheYear;
+
 /**
  * packageName    : com.ns21.tim.creator
  * fileName       : TimMessageCreator.java
@@ -62,11 +64,12 @@ public class TimValueCreator {
         long[] utmToLatLon = MetaDataConvertUtil.utmToLatLon(utmX, utmY, utmZone, elevation);
         // EgoPoseDto 객체에서 로테이션 가져와서 다이렉션으로 변환
         String direction = MetaDataConvertUtil.quaternionToFormattedString(egoPoseDto.getRotation());
-
+        //timestamp 값 분 단위,integer 타입, 527040 범위 안으로 변경하여 가져오기
+        int integerTimestamp = minuteOfTheYear(egoPoseDto.getTimestamp());
 
         // Add msgCnt
         timMessage.put("msgCnt", msgCnt++);
-
+        timMessage.put("timeStamp", integerTimestamp); //egoPoseDto.getTimestamp() timestamp 값 inteager 값으로 맞추기
         // Add dataFrames
         List<Map<String, Object>> dataFrames = new ArrayList<>();
         Map<String, Object> dataFrame = new LinkedHashMap<>();
@@ -79,7 +82,7 @@ public class TimValueCreator {
         dataFrame.put("startTime", convertedTimestamp[1]); //ego_pose.json 의 타임스탬프, 에고 포즈가 기록된 시점
 
         dataFrame.put("duratonTime", 0);
-        dataFrame.put("priority", 0);
+        dataFrame.put("priority", 02);
         dataFrame.put("sspLocationRights", 0);
 
         // Add regions

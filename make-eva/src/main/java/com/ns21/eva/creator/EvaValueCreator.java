@@ -14,7 +14,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.ns21.common.util.MetaDataConvertUtil.convertTimestampToUtcMap;
+import static com.ns21.common.util.MetaDataConvertUtil.*;
 
 /**
  * packageName    : com.ns21.eva.creator
@@ -36,20 +36,16 @@ public class EvaValueCreator {
         ObjectMapper mapper = new ObjectMapper();
 
         // DataStorage에서 데이터 가져오기
-        List<DatasetDto> datasetList = DataStorage.getInstance().getDatasets();
         List<EgoPoseDto> egoPoseList = DataStorage.getInstance().getEgoPoses();
         List<FrameAnnotationDto> frameAnnotationList = DataStorage.getInstance().getFrameAnnotations();
         List<LogDto> logList = DataStorage.getInstance().getLogs();
-        List<SensorDto> sensorList = DataStorage.getInstance().getSensors();
         List<InstanceDto> instanceDtoList = DataStorage.getInstance().getInstances();
         List<FrameDataDto> frameDataDtoList = DataStorage.getInstance().getFrameData();
 
         // 데이터가 있는 경우에만
-        DatasetDto datasetDto = datasetList.isEmpty() ? null : datasetList.get(0);
         EgoPoseDto egoPoseDto = egoPoseList.isEmpty() ? null : egoPoseList.get(0);
         FrameAnnotationDto frameAnnotationDto = frameAnnotationList.isEmpty() ? null : frameAnnotationList.get(0);
         LogDto logDto = logList.isEmpty() ? null : logList.get(0);
-        SensorDto sensorDto = sensorList.isEmpty() ? null : sensorList.get(0);
         InstanceDto instanceDto = instanceDtoList.isEmpty() ? null : instanceDtoList.get(0);
         FrameDataDto frameDataDto = frameDataDtoList.isEmpty() ? null : frameDataDtoList.get(0);
 
@@ -63,21 +59,25 @@ public class EvaValueCreator {
         int utmZone = 52; //대한민국 대부분 지역은 52 (일부51)
         double elevation = translation.get(2); // ex)49.126053147017956
         long[] utmToLatLon = MetaDataConvertUtil.utmToLatLon(utmX, utmY, utmZone, elevation);
+        // frame_annotation 의 orientation 값을 heading 값으로 변경
+        FrameAnnotationDto.Geometry geometry = frameAnnotationDto.getGeometry();
+        List<Double> orientation = geometry.getOrientation(); // geometry 에서  orientation 값을 가져옴
+        //timestamp 값 분 단위,integer 타입, 527040 범위 안으로 변경하여 가져오기
+        int integerTimestamp = minuteOfTheYear(egoPoseDto.getTimestamp());
 
-        // Add msgCnt
+
         evaMessage.put("msgCnt", msgCnt++);
-        evaMessage.put("typeEvent", 0); // todo : 주변 차량과 이동상태,가시성 낮음 추가해야함 itis 코드를 이용하여 로직 추가해야함
-        evaMessage.put("priority", "01");
+        evaMessage.put("timeStamp", integerTimestamp); //egoPoseDto.getTimestamp() timestamp 값 inteager 값으로 맞추기
+        evaMessage.put("typeEvent", 0); // todo : 주의할 차량과 차량의 이동상태 추가해야함 itis 코드를 이용하여 로직 추가해야함 instance.json 의 category_name , frame_annotation.json 의  vehicle_state
+        evaMessage.put("priority", "00");
 
-        // sensor.json 의 rotation 값을 quaternionToHeading 를 통해 변환함 (ffff)
-        String heading = MetaDataConvertUtil.quaternionToHeading(sensorDto.getRotation());
-        evaMessage.put("heading", heading);
+        String heading = MetaDataConvertUtil.quaternionToHeading(orientation);       // frame_annotation 의 orientation 값을 heading 값으로 변경
+        evaMessage.put("heading", heading); //ffff
 
         Map<String, Object> position = new LinkedHashMap<>();
-        // timestamp 를 utctime 으로 변환 > convertTimestampToUtcMap
-        Map<String, Object> utcTimeMap = convertTimestampToUtcMap(egoPoseDto.getTimestamp());
+        Map<String, Object> utcTimeMap = convertTimestampToUtcMap(egoPoseDto.getTimestamp()); //  egoPoseDto 의 timestamp,
         position.put("utcTime", utcTimeMap);
-
+        // ego_pose.json 파일의 translation
         position.put("long", utmToLatLon[1]);
         position.put("lat", utmToLatLon[0]);
         position.put("elevation", utmToLatLon[2]);
@@ -89,17 +89,16 @@ public class EvaValueCreator {
 
         Map<String, Object> regExtValue = new LinkedHashMap<>();
         Map<String, Object> cits = new LinkedHashMap<>();
-        cits.put("stopID", logDto.getLocation());
-        cits.put("text", frameDataDto.getUuid());
-        cits.put("sendUniqueId", sensorDto.getName());
-
-
+        cits.put("stopID", logDto.getLocation()); //log.json 의 location //로그가 캡처된 위치/명칭
+        cits.put("text", frameDataDto.getUuid()); //frameData.json 의 uuid
         regExtValue.put("cits", cits);
         regionalItem.put("regExtValue", regExtValue);
         regional.add(regionalItem);
 
         evaMessage.put("regional", regional);
+        Map<String, Object> rsaMsg = new LinkedHashMap<>();
+        rsaMsg.put("rsaMsg", evaMessage);
 
-        return mapper.writeValueAsString(evaMessage);
+        return mapper.writeValueAsString(rsaMsg);
     }
 }
