@@ -10,13 +10,14 @@ import java.time.format.DateTimeFormatter;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * packageName    : com.ns21.common.util
  * fileName       : MetaDataConvertUtil.java
  * author         : kjg08
  * date           : 2023-11-27
- * description    :
+ * description    :지리적 좌표 변환 및 시간 변환을 활용하여 복잡한 데이터 조작 작업
  * ===========================================================
  * DATE              AUTHOR             NOTE
  * -----------------------------------------------------------
@@ -42,33 +43,31 @@ public class MetaDataConvertUtil {
     }
 
     //translation 을 위경고도로 만들때 에 사용
+    private static final ConcurrentHashMap<String, long[]> cache = new ConcurrentHashMap<>();
     public static long[] utmToLatLon(double utmX, double utmY, int utmZone, double elevation) {
-        CRSFactory crsFactory = new CRSFactory();
+        String key = utmX + "-" + utmY + "-" + utmZone + "-" + elevation;
 
-        // UTM 좌표계 정의
-        String utmCrs = "EPSG:326" + utmZone;  // 북반구의 경우 326, 남반구의 경우 327
-        CoordinateReferenceSystem utm = crsFactory.createFromName(utmCrs);
+        // 캐시에서 결과를 조회합니다.
+        return cache.computeIfAbsent(key, k -> {
+            CRSFactory crsFactory = new CRSFactory();
 
-        // 위도/경도 좌표계 정의 (WGS84)
-        CoordinateReferenceSystem latLon = crsFactory.createFromName("EPSG:4326");
+            // 좌표계 정의 및 변환 로직
+            String utmCrs = "EPSG:326" + utmZone;
+            CoordinateReferenceSystem utm = crsFactory.createFromName(utmCrs);
+            CoordinateReferenceSystem latLon = crsFactory.createFromName("EPSG:4326");
 
-        // 좌표 변환 객체 생성
-        BasicCoordinateTransform transform = new BasicCoordinateTransform(utm, latLon);
+            BasicCoordinateTransform transform = new BasicCoordinateTransform(utm, latLon);
+            ProjCoordinate utmCoord = new ProjCoordinate(utmX, utmY);
+            ProjCoordinate latLonCoord = new ProjCoordinate();
+            transform.transform(utmCoord, latLonCoord);
 
-        // UTM 좌표 생성
-        ProjCoordinate utmCoord = new ProjCoordinate(utmX, utmY);
+            long latitudeInMicroDegrees = (long) (latLonCoord.y * 10_000_000);
+            long longitudeInMicroDegrees = (long) (latLonCoord.x * 10_000_000);
+            long elevationInMeters = (long) elevation;
 
-        // 변환된 위도/경도 좌표
-        ProjCoordinate latLonCoord = new ProjCoordinate();
-        transform.transform(utmCoord, latLonCoord);
-
-        // 마이크로도 단위로 변환된 위도, 경도 반환
-        long latitudeInMicroDegrees = (long) (latLonCoord.y * 10_000_000);
-        long longitudeInMicroDegrees = (long) (latLonCoord.x * 10_000_000);
-        long elevationInMeters = (long) (elevation * 1);
-
-        // 위도, 경도, 고도 반환
-        return new long[]{latitudeInMicroDegrees, longitudeInMicroDegrees, elevationInMeters};
+            // 새로 계산된 결과를 반환합니다.
+            return new long[]{latitudeInMicroDegrees, longitudeInMicroDegrees, elevationInMeters};
+        });
     }
 
     //rotation(ego_pose) 방향으로 변환할때 사용
@@ -76,13 +75,13 @@ public class MetaDataConvertUtil {
         double[] euler = quaternionToEuler(quaternion);
 
         // 라디안을 도로 변환
-        double roll = Math.toDegrees(euler[0]);
-        double pitch = Math.toDegrees(euler[1]);
+       // double roll = Math.toDegrees(euler[0]);
+       // double pitch = Math.toDegrees(euler[1]);
         double yaw = Math.toDegrees(euler[2]);
 
         // 범위 조정 및 소수점 이하 반올림
-        roll = (roll + 360) % 360;
-        pitch = (pitch + 360) % 360;
+       // roll = (roll + 360) % 360;
+       // pitch = (pitch + 360) % 360;
         yaw = (yaw + 360) % 360;
 
         // 문자열 형식으로 포매팅
@@ -101,8 +100,8 @@ public class MetaDataConvertUtil {
         double roll = Math.atan2(t0, t1);
 
         double t2 = 2.0 * (w * y - z * x);
-        t2 = t2 > 1.0 ? 1.0 : t2;
-        t2 = t2 < -1.0 ? -1.0 : t2;
+        t2 = Math.min(t2, 1.0);
+        t2 = Math.max(t2, -1.0);
         double pitch = Math.asin(t2);
 
         double t3 = 2.0 * (w * z + x * y);
@@ -162,9 +161,11 @@ public class MetaDataConvertUtil {
 
         return utcTime;
     }
+
     //timestamp 값 분 단위까지만 가져와서 527040의 범위에 맞게 수정. 527040 이 넘어가면 롤오버 됨
     public static int minuteOfTheYear(String timestampString) {
-        Instant instant = Instant.ofEpochSecond((long) Double.parseDouble(timestampString));
+        double timestampDouble = Double.parseDouble(timestampString);
+        Instant instant = Instant.ofEpochSecond((long) timestampDouble);
         ZonedDateTime zdt = instant.atZone(ZoneId.of("UTC"));
         int yearStart = zdt.getYear();
         ZonedDateTime startOfYear = ZonedDateTime.of(yearStart, 1, 1, 0, 0, 0, 0, ZoneId.of("UTC"));
@@ -173,4 +174,5 @@ public class MetaDataConvertUtil {
         // Ensure it fits within 0 to 527040
         return (int) (minutesSinceYearStart % 527041); // Using 527041 to include 0 in the range
     }
+
 }

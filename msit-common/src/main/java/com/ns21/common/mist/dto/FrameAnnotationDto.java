@@ -23,6 +23,7 @@ import java.util.Map;
 @Setter
 @ToString
 public class FrameAnnotationDto extends BaseDto{
+    private String uuid;
     @JsonProperty("frame_data_uuid")
     private String frameDataUuid;
     @JsonProperty("instance_uuid")

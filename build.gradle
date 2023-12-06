@@ -8,12 +8,6 @@ subprojects {
     version '1.0-SNAPSHOT'
     apply plugin: 'java'
 
-
-  /*  repositories {
-        mavenCentral().content {
-            excludeModule("javax.media", "jai_core") //jar_core central maven not found
-        }
-    }*/
     repositories {
         // Inherits the repositories from the root project
         mavenCentral()

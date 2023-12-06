@@ -23,6 +23,7 @@ import java.util.List;
 @Setter
 @ToString
 public class EgoPoseDto extends BaseDto {
+    private String uuid;
     private String timestamp;
     private List<Double> translation;
     private List<Double> rotation;

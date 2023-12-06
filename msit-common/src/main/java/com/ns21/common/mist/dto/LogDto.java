@@ -20,6 +20,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class LogDto extends BaseDto {
+     private String uuid;
     @JsonProperty("map_uuids")
     private String mapUuids;
     private String device;

@@ -20,6 +20,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class FrameDataDto extends BaseDto {
+    private String uuid;
     @JsonProperty("frame_uuid")
     private String frameUuid;
     @JsonProperty("ego_pose_uuid")

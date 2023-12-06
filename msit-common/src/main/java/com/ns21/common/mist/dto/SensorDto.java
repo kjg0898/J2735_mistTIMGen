@@ -22,6 +22,7 @@ import java.util.List;
 @Setter
 @ToString
 public class SensorDto extends BaseDto {
+    private String uuid;
     private String name;
     private String type;
     private List<Double> translation;

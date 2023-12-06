@@ -58,29 +58,27 @@ public class RsaValueCreator {
         int utmZone = 52; //대한민국 대부분 지역은 52 (일부51)
         double elevation = translation.get(2); // ex)49.126053147017956
         long[] utmToLatLon = MetaDataConvertUtil.utmToLatLon(utmX, utmY, utmZone, elevation);
-
         //timestamp 값 분 단위,integer 타입, 527040 범위 안으로 변경하여 가져오기
         int integerTimestamp = minuteOfTheYear(egoPoseDto.getTimestamp());
+        // sensor.json 의 rotation 값을 quaternionToHeading 를 통해 변환함 (ffff)
+        String heading = MetaDataConvertUtil.quaternionToHeading(sensorDto.getRotation());
+
+
         // Add msgCnt
         rsaMessage.put("msgCnt", msgCnt++);
         rsaMessage.put("timeStamp", integerTimestamp);
         rsaMessage.put("typeEvent", 0); // todo : 주의할 차량과 차량의 이동상태,가시성 낮음 추가해야함 itis 코드를 이용하여 로직 추가해야함 instance.json 의 category_name , frame_annotation.json 의  vehicle_state , frameannotation의 visibility_level
         rsaMessage.put("priority", "01");
-
-        // sensor.json 의 rotation 값을 quaternionToHeading 를 통해 변환함 (ffff)
-        String heading = MetaDataConvertUtil.quaternionToHeading(sensorDto.getRotation());
         rsaMessage.put("heading", heading); //sensor.json 의 rotation
 
         Map<String, Object> position = new LinkedHashMap<>();
         // timestamp 를 utctime 으로 변환 > convertTimestampToUtcMap
         Map<String, Object> utcTimeMap = convertTimestampToUtcMap(egoPoseDto.getTimestamp());
         position.put("utcTime", utcTimeMap); //ego_pose.json 의 timestamp, //에고 포즈가 기록된 시점
-
         position.put("long", utmToLatLon[1]);  // ego_pose.json 파일의 translation,
         position.put("lat", utmToLatLon[0]);  // ego_pose.json 파일의 translation,
         position.put("elevation", utmToLatLon[2]);  // ego_pose.json 파일의 translation,
         rsaMessage.put("position", position);
-
         List<Map<String, Object>> regional = new ArrayList<>();
         Map<String, Object> regionalItem = new LinkedHashMap<>();
         regionalItem.put("regionId", 4);

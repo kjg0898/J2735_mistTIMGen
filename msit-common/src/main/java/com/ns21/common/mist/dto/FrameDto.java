@@ -20,6 +20,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class FrameDto extends BaseDto {
+    private String uuid;
     private String timestamp;
     @JsonProperty("dataset_uuid")
     private String datasetUuid;

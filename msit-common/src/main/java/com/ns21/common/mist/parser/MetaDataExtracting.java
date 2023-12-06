@@ -12,11 +12,10 @@ import java.nio.file.Files;
 import java.util.List;
 
 /**
- * packageName    : com.ns21.tim.metaprocess
- * fileName       : MetaDataProcessing.java
+ * fileName       : MetaDataExtracting.java
  * author         : kjg08
  * date           : 2023-11-23
- * description    :
+ * description    :메타데이터 처리를 다루며, 파일에서 데이터를 읽고 구문 분석
  * ===========================================================
  * DATE              AUTHOR             NOTE
  * -----------------------------------------------------------
@@ -29,21 +28,22 @@ public class MetaDataExtracting {
     // 파일 처리 메서드
     public void processFiles() {
         String path = "msit-common/src/main/resources/metadata/";
-        processDatasets(path + "dataset.json");
-        processEgoPoses(path + "ego_pose.json");
-        processFrameAnnotations(path + "frame_annotation.json");
-        processFrameDatas(path + "frame_data.json");
-        processFrames(path + "frame.json");
-        processInstances(path + "instance.json");
-        processLogs(path + "log.json");
-        processPresets(path + "preset.json");
-        processSensors(path + "sensor.json");
+            processDatasets(path + "dataset.json");
+            processEgoPoses(path + "ego_pose.json");
+            processFrameAnnotations(path + "frame_annotation.json");
+            processFrameDatas(path + "frame_data.json");
+            processFrames(path + "frame.json");
+            processInstances(path + "instance.json");
+            processLogs(path + "log.json");
+            processPresets(path + "preset.json");
+            processSensors(path + "sensor.json");
+
     }
 
 
     public void processDatasets(String filePath) {
         try {
-            List<DatasetDto> datasets = readDataFromFile(filePath, new TypeReference<List<DatasetDto>>() {
+            List<DatasetDto> datasets = readDataFromFile(filePath, new TypeReference<>() {
             });
             DataStorage.getInstance().storeDatasets(datasets);
         } catch (IOException e) {
@@ -53,7 +53,7 @@ public class MetaDataExtracting {
 
     public void processEgoPoses(String filePath) {
         try {
-            List<EgoPoseDto> egoPoses = readDataFromFile(filePath, new TypeReference<List<EgoPoseDto>>() {
+            List<EgoPoseDto> egoPoses = readDataFromFile(filePath, new TypeReference<>() {
             });
             DataStorage.getInstance().storeEgoPoses(egoPoses);
         } catch (IOException e) {
@@ -63,7 +63,7 @@ public class MetaDataExtracting {
 
     public void processFrameAnnotations(String filePath) {
         try {
-            List<FrameAnnotationDto> frameAnnotations = readDataFromFile(filePath, new TypeReference<List<FrameAnnotationDto>>() {
+            List<FrameAnnotationDto> frameAnnotations = readDataFromFile(filePath, new TypeReference<>() {
             });
             DataStorage.getInstance().storeFrameAnnotations(frameAnnotations);
         } catch (IOException e) {
@@ -73,7 +73,7 @@ public class MetaDataExtracting {
 
     public void processFrameDatas(String filePath) {
         try {
-            List<FrameDataDto> frameDatas = readDataFromFile(filePath, new TypeReference<List<FrameDataDto>>() {
+            List<FrameDataDto> frameDatas = readDataFromFile(filePath, new TypeReference<>() {
             });
             DataStorage.getInstance().storeFrameDatas(frameDatas);
         } catch (IOException e) {
@@ -83,7 +83,7 @@ public class MetaDataExtracting {
 
     public void processFrames(String filePath) {
         try {
-            List<FrameDto> frames = readDataFromFile(filePath, new TypeReference<List<FrameDto>>() {
+            List<FrameDto> frames = readDataFromFile(filePath, new TypeReference<>() {
             });
             DataStorage.getInstance().storeFrames(frames);
         } catch (IOException e) {
@@ -93,7 +93,7 @@ public class MetaDataExtracting {
 
     public void processInstances(String filePath) {
         try {
-            List<InstanceDto> instances = readDataFromFile(filePath, new TypeReference<List<InstanceDto>>() {
+            List<InstanceDto> instances = readDataFromFile(filePath, new TypeReference<>() {
             });
             DataStorage.getInstance().storeInstances(instances);
         } catch (IOException e) {
@@ -103,7 +103,7 @@ public class MetaDataExtracting {
 
     public void processLogs(String filePath) {
         try {
-            List<LogDto> logs = readDataFromFile(filePath, new TypeReference<List<LogDto>>() {
+            List<LogDto> logs = readDataFromFile(filePath, new TypeReference<>() {
             });
             DataStorage.getInstance().storeLogs(logs);
         } catch (IOException e) {
@@ -113,7 +113,7 @@ public class MetaDataExtracting {
 
     public void processPresets(String filePath) {
         try {
-            PresetDto presets = readDataFromFile(filePath, new TypeReference<PresetDto>() {
+            PresetDto presets = readDataFromFile(filePath, new TypeReference<>() {
             });
             DataStorage.getInstance().storePresets(presets);
         } catch (IOException e) {
@@ -123,7 +123,7 @@ public class MetaDataExtracting {
 
     public void processSensors(String filePath) {
         try {
-            List<SensorDto> sensors = readDataFromFile(filePath, new TypeReference<List<SensorDto>>() {
+            List<SensorDto> sensors = readDataFromFile(filePath, new TypeReference<>() {
             });
             DataStorage.getInstance().storeSensors(sensors);
         } catch (IOException e) {

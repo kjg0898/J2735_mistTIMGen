@@ -1,23 +1,27 @@
 package com.ns21.common.mist.parser;
 
 import com.ns21.common.mist.dto.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.Getter;
 
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-
+/**
+ * fileName       : DataStorage.java
+ * author         : kjg08
+ * date           : 2023-11-23
+ * description    :데이터 저장소를 관리하고, 데이터를 저장하기 위해 ConcurrentHashMap을 사용하며, 스레드 안전에 중점
+ * ===========================================================
+ * DATE              AUTHOR             NOTE
+ * -----------------------------------------------------------
+ * 2023-11-23        kjg08           최초 생성
+ */
 public class DataStorage {
-    private static final Logger logger = LoggerFactory.getLogger(DataStorage.class);
+    @Getter
     private static final DataStorage instance = new DataStorage();
     private final ConcurrentHashMap<String, Object> dataMap;
 
     private DataStorage() {
         dataMap = new ConcurrentHashMap<>();
-    }
-
-    public static DataStorage getInstance() {
-        return instance;
     }
 
 
@@ -96,9 +100,9 @@ public class DataStorage {
         dataMap.put("preset", preset);
     }
 
-    public PresetDto getPreset() {
-        return (PresetDto) dataMap.get("preset");
-    }
+   // public PresetDto getPreset() {
+   //     return (PresetDto) dataMap.get("preset");
+   // }
 
     // SensorDto 저장 및 조회
     public void storeSensors(List<SensorDto> sensors) {

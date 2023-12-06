@@ -542,5 +542,1053 @@
         "last_frame_annotation_uuid": "2db9d41b-4111-4246-8d27-1426a41a97fe",
         "num_annotations": 48,
         "description": null
+    },
+    {
+        "uuid": "f635790c-5f18-4edd-8c78-2492c69a03dc",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "cf848280-50ac-4b17-8b74-32a698eccab7",
+        "last_frame_annotation_uuid": "6bc9d5f8-dd4f-4a40-ae12-1f4cd328e16a",
+        "num_annotations": 173,
+        "description": null
+    },
+    {
+        "uuid": "a84277ed-733a-474e-904d-fe4bb0fc42fe",
+        "category_name": "movable_object.traffic_cone",
+        "first_frame_annotation_uuid": "dd54d849-6b6f-49bc-923d-7c441b753470",
+        "last_frame_annotation_uuid": "acce0cc0-9b55-4892-ae39-e9285c919fbf",
+        "num_annotations": 38,
+        "description": null
+    },
+    {
+        "uuid": "cd0579b3-b954-4540-8c96-838ff21ef2d7",
+        "category_name": "movable_object.barrier",
+        "first_frame_annotation_uuid": "fe45f753-8f9e-477f-b704-6a664ef4af50",
+        "last_frame_annotation_uuid": "79814804-ddb8-47bf-8c68-aac9ddf0cd6b",
+        "num_annotations": 170,
+        "description": null
+    },
+    {
+        "uuid": "12b90be2-40a6-40e8-8e87-a939533a76bf",
+        "category_name": "movable_object.barrier",
+        "first_frame_annotation_uuid": "72ea5ad2-9943-4013-9023-63be20578feb",
+        "last_frame_annotation_uuid": "5670b086-858d-4889-af1e-b5c8b6b4c92f",
+        "num_annotations": 171,
+        "description": null
+    },
+    {
+        "uuid": "f48a0b8b-754c-4fd6-b75d-9db5ca88708c",
+        "category_name": "movable_object.barrier",
+        "first_frame_annotation_uuid": "5fa03b9d-e733-4f45-9f2b-876332fa2927",
+        "last_frame_annotation_uuid": "02fbae42-2cd1-4a14-8bde-9d3e6cce3481",
+        "num_annotations": 210,
+        "description": null
+    },
+    {
+        "uuid": "d732f015-235b-4fc1-8613-a20bacc1d834",
+        "category_name": "movable_object.barrier",
+        "first_frame_annotation_uuid": "1f7425e0-b226-4155-9356-a55ad4a76522",
+        "last_frame_annotation_uuid": "b92fd3c9-b40e-44ff-b622-adb43c7170ef",
+        "num_annotations": 174,
+        "description": null
+    },
+    {
+        "uuid": "c914b4d3-817d-4f39-9a02-0ac512d5f0ec",
+        "category_name": "movable_object.barrier",
+        "first_frame_annotation_uuid": "460f9bd2-2e1f-46c3-8b88-014dce3d3814",
+        "last_frame_annotation_uuid": "c47110d4-e049-4d70-9d3d-533538bdc322",
+        "num_annotations": 175,
+        "description": null
+    },
+    {
+        "uuid": "ca5f8ed0-fb44-4c0e-b424-e393b46bbf28",
+        "category_name": "movable_object.barrier",
+        "first_frame_annotation_uuid": "05d347c3-55fc-4a19-a763-069ee15ab2a4",
+        "last_frame_annotation_uuid": "45c14e2e-a3ad-4bf8-b017-34fe083ea051",
+        "num_annotations": 177,
+        "description": null
+    },
+    {
+        "uuid": "28baad31-37df-4e6a-a671-5fea79b67bb5",
+        "category_name": "movable_object.barrier",
+        "first_frame_annotation_uuid": "28f67af9-f71a-48e2-9f3b-ad005c5c5199",
+        "last_frame_annotation_uuid": "616a4afa-4fca-4dc9-9227-723e2ee3da16",
+        "num_annotations": 178,
+        "description": null
+    },
+    {
+        "uuid": "dc4d09ef-96c2-40f3-bbb2-72a24ad07d2b",
+        "category_name": "movable_object.barrier",
+        "first_frame_annotation_uuid": "8dafe2eb-c832-4639-9859-6cf1b33dcfdc",
+        "last_frame_annotation_uuid": "2cc1775e-83c7-46e0-903c-0ec5be2c8dd9",
+        "num_annotations": 180,
+        "description": null
+    },
+    {
+        "uuid": "e16805af-d4dc-4b2c-bab8-bf8eee18f78f",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "6b9f18bb-e56b-4d9e-a06a-aa4a577f9eba",
+        "last_frame_annotation_uuid": "c44850c9-aa8d-43d3-93e3-cd0a93fde7ee",
+        "num_annotations": 123,
+        "description": null
+    },
+    {
+        "uuid": "c83a3156-9694-4dc0-97c9-691bef70e391",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "5eacbb64-7b22-49c0-9317-850bd96c9aed",
+        "last_frame_annotation_uuid": "f2c6a03d-6d83-42be-8a43-a37d19546078",
+        "num_annotations": 107,
+        "description": null
+    },
+    {
+        "uuid": "2fb1918c-2d30-4ae1-ab02-57ec981293d2",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "5b679bab-e8cd-4181-8291-1ba6a91c1db5",
+        "last_frame_annotation_uuid": "7084a650-9abd-489c-9cae-63e8a2b83a7b",
+        "num_annotations": 121,
+        "description": null
+    },
+    {
+        "uuid": "717e75c0-b360-46d5-bdc7-3197ed01b0e0",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "7b05e895-d267-4448-82f1-0becafe5ecac",
+        "last_frame_annotation_uuid": "42e317c6-32fb-4969-bc7a-94b2ed8004fe",
+        "num_annotations": 114,
+        "description": null
+    },
+    {
+        "uuid": "cf0b248e-81c7-49f9-a71a-b64b1f89ea97",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "f192a051-fdde-43c2-b1f8-25de02561fa3",
+        "last_frame_annotation_uuid": "ffe5a8b6-780f-4ce5-b5e3-796a00a543c9",
+        "num_annotations": 59,
+        "description": null
+    },
+    {
+        "uuid": "8dbf269c-13c8-4ba4-aa81-e8fc351ce7ea",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "665fce0f-11ee-4ad9-ab0c-590d1603b6ed",
+        "last_frame_annotation_uuid": "3df79a54-32ad-4c40-933f-7c8672be2d75",
+        "num_annotations": 100,
+        "description": null
+    },
+    {
+        "uuid": "9397e3bb-2b97-4d2e-abc4-d76267da9c59",
+        "category_name": "dynamic_object.vehicle.bus",
+        "first_frame_annotation_uuid": "ecd63f43-a247-4e36-8656-e054007ccba3",
+        "last_frame_annotation_uuid": "9aacf7bb-55df-498d-87a0-438fa5cbf1e6",
+        "num_annotations": 27,
+        "description": null
+    },
+    {
+        "uuid": "e3fc6de6-c7d1-4ffe-88ad-172837553eac",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "dae3f965-34a4-465a-b32b-3042dde321d4",
+        "last_frame_annotation_uuid": "0358dcf4-3d66-4ce7-8904-66b31bfde3cd",
+        "num_annotations": 26,
+        "description": null
+    },
+    {
+        "uuid": "28a05668-63ca-4f67-837a-0892bbeb8d1a",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "271c3aa3-5259-4f05-b1d6-420b585dcff0",
+        "last_frame_annotation_uuid": "ea56ac27-5d1b-42c2-9c9c-c0805bd1faa9",
+        "num_annotations": 34,
+        "description": null
+    },
+    {
+        "uuid": "551fc67d-8397-4876-b1d8-6ee0158b0fc1",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "344bde76-bf58-435f-b3da-2349e7ecb01a",
+        "last_frame_annotation_uuid": "5fcac562-f974-4f94-b087-6d7849523ab8",
+        "num_annotations": 29,
+        "description": null
+    },
+    {
+        "uuid": "34e51a92-eb25-4d31-8448-9e05f700e37a",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "b44a951a-95a3-4735-80ce-0732c8a0ffe9",
+        "last_frame_annotation_uuid": "6796d9d3-b3c2-4628-8f8d-993de89cc447",
+        "num_annotations": 45,
+        "description": null
+    },
+    {
+        "uuid": "9521b122-c449-4067-a47e-100d17b7092e",
+        "category_name": "dynamic_object.vehicle.truck",
+        "first_frame_annotation_uuid": "f5b39fc2-98e0-4afc-9884-0d80916276ee",
+        "last_frame_annotation_uuid": "829ed805-1310-4a60-8f21-b26a86df7a82",
+        "num_annotations": 52,
+        "description": null
+    },
+    {
+        "uuid": "5f584945-d9af-446f-914a-c11e911e05de",
+        "category_name": "dynamic_object.vehicle.truck",
+        "first_frame_annotation_uuid": "866cc5ff-5a04-4478-8364-f7699cb49d8d",
+        "last_frame_annotation_uuid": "e3d31bd9-b344-4d4b-9a7c-057dc6ebb81f",
+        "num_annotations": 30,
+        "description": null
+    },
+    {
+        "uuid": "ba49ff2f-ef94-432a-9eb0-7fd3512b03b7",
+        "category_name": "dynamic_object.vehicle.truck",
+        "first_frame_annotation_uuid": "1cb65033-e857-4ee8-bc95-2ea9cb594e9d",
+        "last_frame_annotation_uuid": "7302e4e8-9311-4f45-ac99-339198e6d64f",
+        "num_annotations": 37,
+        "description": null
+    },
+    {
+        "uuid": "0ff5927c-5cd0-48a2-ae94-0fb108371bd4",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "7d80c442-15ed-4642-95c2-cdcdc68172a4",
+        "last_frame_annotation_uuid": "271f4738-5549-489c-9353-ba72d9ddbd43",
+        "num_annotations": 34,
+        "description": null
+    },
+    {
+        "uuid": "8c89c309-5add-4350-9379-45d45cca4a03",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "94aee359-e08a-4a42-96be-705bb64a4685",
+        "last_frame_annotation_uuid": "56b081c0-8f29-462a-940b-fa401ce76888",
+        "num_annotations": 176,
+        "description": null
+    },
+    {
+        "uuid": "b7ae6d91-6156-42d3-8b13-dafb511f9229",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "0f9f72d9-96b8-4d1a-a966-cf6a11851983",
+        "last_frame_annotation_uuid": "c1b26ec7-26ca-49f8-91e2-465da8526622",
+        "num_annotations": 68,
+        "description": null
+    },
+    {
+        "uuid": "4498af0e-264f-4ab0-9133-55930dc1e96c",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "b3a00ff7-f04e-47fa-9fc9-c4bd592428ff",
+        "last_frame_annotation_uuid": "76aa0a52-5ead-42fb-b89e-94314161ff26",
+        "num_annotations": 93,
+        "description": null
+    },
+    {
+        "uuid": "8cf32461-e8a8-44cb-9049-59ed23e7bf3d",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "7f53c5fe-0fb6-4cf7-bf28-49e768d9a752",
+        "last_frame_annotation_uuid": "852d5e41-e8b3-4186-a986-ea9108ab4457",
+        "num_annotations": 85,
+        "description": null
+    },
+    {
+        "uuid": "f8c6b949-5106-47ff-b034-3dd34ced529e",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "1545518f-e14e-40ea-8b0b-506282070906",
+        "last_frame_annotation_uuid": "382e8819-83ce-4115-adb7-c58e133a2047",
+        "num_annotations": 78,
+        "description": null
+    },
+    {
+        "uuid": "d983840f-abf6-4a9f-b8b9-8dd2a8a2b464",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "89a4d480-56a1-4a33-bbd1-2e9d8f1ef946",
+        "last_frame_annotation_uuid": "56f4a1ae-6e4f-4d5f-9134-77cd4e8954cf",
+        "num_annotations": 74,
+        "description": null
+    },
+    {
+        "uuid": "cdca9648-eb35-482e-ab4d-20a3b592f5da",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "7cbbcf78-269e-4093-84fd-1b43592dbac7",
+        "last_frame_annotation_uuid": "8b74ee8b-6bfb-467d-9fb5-3a5f9c505aab",
+        "num_annotations": 57,
+        "description": null
+    },
+    {
+        "uuid": "7cd41355-9cf9-4679-a245-7fa98b1faecc",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "f3806fc7-3e74-49a4-ad3b-1c1b071f1e5d",
+        "last_frame_annotation_uuid": "5fbc2212-5817-45a6-86de-425117acb205",
+        "num_annotations": 50,
+        "description": null
+    },
+    {
+        "uuid": "96b57b1a-9f72-4983-b81d-34403dcc8fde",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "c7e3a71d-af5d-4ad7-923f-fc7d29c53507",
+        "last_frame_annotation_uuid": "9211a40f-c8ac-4d5b-8982-fbcdc1f3eab6",
+        "num_annotations": 45,
+        "description": null
+    },
+    {
+        "uuid": "6f0acbdf-b82c-437a-a596-e83b0f84c48f",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "b271d6af-a1e4-4b29-8eb1-7affb4876c88",
+        "last_frame_annotation_uuid": "9802bb0b-b513-4a5c-80bb-5ee903c51796",
+        "num_annotations": 68,
+        "description": null
+    },
+    {
+        "uuid": "87144b7e-0374-4477-8ab1-bea54211b902",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "c47fea45-7374-4626-8041-65e9dd8ecef0",
+        "last_frame_annotation_uuid": "b2e6245e-191f-4fff-9fbe-9466d87f5df8",
+        "num_annotations": 58,
+        "description": null
+    },
+    {
+        "uuid": "ac12aa48-4ea6-4e5f-ae5e-79460fd5719d",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "4ac6e4b1-a6fa-4dca-aece-16fd010e6eee",
+        "last_frame_annotation_uuid": "8458373f-ce42-4b01-9e90-2432aee6824b",
+        "num_annotations": 116,
+        "description": null
+    },
+    {
+        "uuid": "47920303-b45c-4ede-a3f9-5cff6f6332c1",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "7d4fae3e-dc35-40f3-b0d0-6d9a5a21af9e",
+        "last_frame_annotation_uuid": "154ce642-b86a-4ec7-ac47-2fdb09e34020",
+        "num_annotations": 172,
+        "description": null
+    },
+    {
+        "uuid": "ebddf988-ccf0-4140-bf49-9666291bf0d9",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "e28019a0-95fd-4cca-b816-5de0c997ca1f",
+        "last_frame_annotation_uuid": "2eb75a4a-b365-486c-8e5f-5222ba7ae980",
+        "num_annotations": 162,
+        "description": null
+    },
+    {
+        "uuid": "5da10b0e-34e5-496f-a1d9-69af114401eb",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "4a4a0742-ffac-483a-ab06-05b7685c2656",
+        "last_frame_annotation_uuid": "b4192b9e-ffa7-4756-9caf-b3566a5efa88",
+        "num_annotations": 6,
+        "description": null
+    },
+    {
+        "uuid": "47e4edd9-10e2-4915-bede-9416f78553ec",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "b3989e9c-9d46-4ca5-986d-9229c5298dc3",
+        "last_frame_annotation_uuid": "fbfc1ed7-f353-47fb-97a2-8a3849bbb157",
+        "num_annotations": 161,
+        "description": null
+    },
+    {
+        "uuid": "7e6c2784-356c-48b3-ab54-06de05c33d95",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "078e16cc-1bfe-490f-9393-2ba891cb9734",
+        "last_frame_annotation_uuid": "6d070ed2-56d3-46fe-82d6-5162c7b49d33",
+        "num_annotations": 171,
+        "description": null
+    },
+    {
+        "uuid": "422ceade-5c84-404f-bf93-5a934f0d6ca2",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "ad523ebe-de22-480b-a472-22604e64b323",
+        "last_frame_annotation_uuid": "af36213c-3ced-4ffd-9d84-d51dc22cb95a",
+        "num_annotations": 153,
+        "description": null
+    },
+    {
+        "uuid": "a382e93b-755e-48b7-b9b5-055f2785c5a1",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "6851fca3-e77b-4ed8-aac3-e3f760b98465",
+        "last_frame_annotation_uuid": "1db52bf6-dddb-450b-9d10-4ec6eecc2412",
+        "num_annotations": 44,
+        "description": null
+    },
+    {
+        "uuid": "3d1bcd97-5193-4179-986c-79482d117769",
+        "category_name": "dynamic_object.vehicle.truck",
+        "first_frame_annotation_uuid": "0d87afe5-d96c-4537-b9c2-d556c5c830b0",
+        "last_frame_annotation_uuid": "074ba595-fcde-4443-95f6-622ac5b3f4ab",
+        "num_annotations": 158,
+        "description": null
+    },
+    {
+        "uuid": "f51e09d2-6c34-474d-99e5-1853ef797ad8",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "0a08f107-3867-4cb5-b6e3-96564e5e1101",
+        "last_frame_annotation_uuid": "49b5c068-0ac4-4e4b-bf2c-e155be724e7b",
+        "num_annotations": 70,
+        "description": null
+    },
+    {
+        "uuid": "1e273df3-a95b-4e2d-9224-0d6e51e56d63",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "830dea2b-921f-4cb9-bee0-9f74f517e066",
+        "last_frame_annotation_uuid": "d10d5ccd-9130-4c7f-ba66-c25c8d468513",
+        "num_annotations": 50,
+        "description": null
+    },
+    {
+        "uuid": "3620359a-fdf8-4638-90f6-7beeedfd2aff",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "72f57b13-b84d-42f4-90a0-e8105aca7b99",
+        "last_frame_annotation_uuid": "0cbe5844-b5f3-41b7-8bef-10c240feea5f",
+        "num_annotations": 99,
+        "description": null
+    },
+    {
+        "uuid": "3bcb4f71-3617-4d25-9f16-225a1378f066",
+        "category_name": "dynamic_object.human.pedestrian",
+        "first_frame_annotation_uuid": "2c4475f9-490e-4472-afc5-c98e657de1c9",
+        "last_frame_annotation_uuid": "11b5636d-b2a7-404b-8e6b-d4e4cc586d51",
+        "num_annotations": 33,
+        "description": null
+    },
+    {
+        "uuid": "2d27c02c-6944-4bb7-964e-aa7b6950d08c",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "bb1e1515-6984-43c3-9531-f30a3c9152b9",
+        "last_frame_annotation_uuid": "bb2ddac7-c5cb-470f-a953-e0b46eeefe6d",
+        "num_annotations": 43,
+        "description": null
+    },
+    {
+        "uuid": "3674f0f4-d309-44da-8c79-0d9ff40bbda9",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "8771af1e-7bfa-4fa3-97f9-5a96b491f4f5",
+        "last_frame_annotation_uuid": "086634fe-3436-4d1c-85f7-6180001dc003",
+        "num_annotations": 29,
+        "description": null
+    },
+    {
+        "uuid": "6188957f-3c8f-4f25-be8a-96a5ee98ad3d",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "894a3e4d-bd28-444b-b88c-a64266d4368b",
+        "last_frame_annotation_uuid": "43ae6f71-b777-4573-8479-2a5d383544f8",
+        "num_annotations": 94,
+        "description": null
+    },
+    {
+        "uuid": "0e1b35d9-a290-4af2-b061-22f51f7447c7",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "3e99ab77-7760-4d40-8c60-808c9c817e39",
+        "last_frame_annotation_uuid": "d200ab32-4b2b-4684-bd30-b7d4213e6309",
+        "num_annotations": 180,
+        "description": null
+    },
+    {
+        "uuid": "8b45c547-5c8c-4e26-8403-6d8a350f47b1",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "52ac6f35-27c5-4a94-891e-a42e2aaa2b8f",
+        "last_frame_annotation_uuid": "b0f4a447-a858-495c-a830-b72c9c56b969",
+        "num_annotations": 160,
+        "description": null
+    },
+    {
+        "uuid": "8ab9d73c-4661-46d7-9fe7-769df9625bab",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "1cf1bd7b-b1c4-48b1-84fa-1e4cc5748064",
+        "last_frame_annotation_uuid": "71893153-0044-4c82-bc3d-95537dd1fa74",
+        "num_annotations": 151,
+        "description": null
+    },
+    {
+        "uuid": "2d009369-9b9c-45a1-bc2b-c9c0f78953f7",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "c6354ba3-950d-4723-ae47-bf870643c13b",
+        "last_frame_annotation_uuid": "69594dee-432a-468c-abba-565e0de4560c",
+        "num_annotations": 142,
+        "description": null
+    },
+    {
+        "uuid": "6a55d4cf-8ec7-497e-88f5-bd347c6279da",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "22e88b9f-ada4-41b0-9ef3-ca7ad5353c11",
+        "last_frame_annotation_uuid": "d3bf7e3a-56db-443b-8b4c-796079ec40cd",
+        "num_annotations": 78,
+        "description": null
+    },
+    {
+        "uuid": "8bc04924-6b35-425a-a484-71983c9f5992",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "a871b46b-fc33-4d48-813b-7fe7384510d5",
+        "last_frame_annotation_uuid": "3af70dbe-4ff9-469b-b7ea-4866fb3b8e0f",
+        "num_annotations": 64,
+        "description": null
+    },
+    {
+        "uuid": "c356a86d-8b6f-4165-8c86-ab76a09d3ba6",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "364f9fb5-6510-407b-8a19-e9622ea41454",
+        "last_frame_annotation_uuid": "db34a93b-7e8f-4c64-900c-6866d7bda5aa",
+        "num_annotations": 19,
+        "description": null
+    },
+    {
+        "uuid": "863e1c91-4ef5-4f25-8390-171f2d487775",
+        "category_name": "dynamic_object.vehicle.truck",
+        "first_frame_annotation_uuid": "4881f362-e6cc-4b67-a13f-eb9f1a1f6deb",
+        "last_frame_annotation_uuid": "e2384201-4cb0-47e5-94a3-22d42d6e6717",
+        "num_annotations": 30,
+        "description": null
+    },
+    {
+        "uuid": "ad1ffe98-d14b-4c56-a3dc-4606a282ab06",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "89bc38aa-c3f1-4015-99ea-e1c596f352a6",
+        "last_frame_annotation_uuid": "c3a8c3a3-f523-4b59-b071-67a4531a25d6",
+        "num_annotations": 61,
+        "description": null
+    },
+    {
+        "uuid": "5d9a4c32-a3b7-42c4-8919-5e48450aeda9",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "e9976d0e-4384-484d-b667-2074ac3ca68e",
+        "last_frame_annotation_uuid": "f3e90019-ee20-4e50-9b84-aaeff872ddc0",
+        "num_annotations": 86,
+        "description": null
+    },
+    {
+        "uuid": "06cfd70b-5eed-4f16-bd8e-1f59a3c47236",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "9e9bee13-5138-4e95-acc8-0abaa8a8e096",
+        "last_frame_annotation_uuid": "90f6b496-0c57-4f6a-84b3-77e325c768ce",
+        "num_annotations": 73,
+        "description": null
+    },
+    {
+        "uuid": "4375ccea-3a5f-4db9-810c-a47db78fb7b7",
+        "category_name": "dynamic_object.vehicle.truck",
+        "first_frame_annotation_uuid": "480fa1f7-692b-47e6-8348-a1ec4a369b2d",
+        "last_frame_annotation_uuid": "00f569bf-f8ff-40ee-8b89-4ff08428d544",
+        "num_annotations": 32,
+        "description": null
+    },
+    {
+        "uuid": "135ff713-a1e9-48c2-a5ed-9af7fc1dc29a",
+        "category_name": "dynamic_object.vehicle.bus",
+        "first_frame_annotation_uuid": "b488adf2-1f29-4b88-a257-6ffb605cc813",
+        "last_frame_annotation_uuid": "88e4a178-1350-400e-81bc-a720add7f35a",
+        "num_annotations": 22,
+        "description": null
+    },
+    {
+        "uuid": "a36f3152-ed80-4518-9646-bcaee4adcfa4",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "8213cf59-cfb3-4dea-bb1c-9544cca03439",
+        "last_frame_annotation_uuid": "c24cfc19-3f6a-4fa9-93bd-1835dad9dd4e",
+        "num_annotations": 38,
+        "description": null
+    },
+    {
+        "uuid": "9fe7c185-26e7-41b7-93b2-30f5484598a2",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "bbfdb25f-787c-4d3c-86a4-989d6d23562d",
+        "last_frame_annotation_uuid": "22440d6a-d094-49a6-8977-55c2f0967a15",
+        "num_annotations": 43,
+        "description": null
+    },
+    {
+        "uuid": "d346474e-0fc0-4a15-9f25-8379d6878840",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "03f36e82-94a1-445a-8c3b-53e5f8435e91",
+        "last_frame_annotation_uuid": "7b410ad3-ef66-4863-9675-9f68278e6a8e",
+        "num_annotations": 16,
+        "description": null
+    },
+    {
+        "uuid": "b912fb74-07e6-4f8e-a32f-a98962c8c640",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "2f905c6f-9ab7-445e-9e96-84ebdd635118",
+        "last_frame_annotation_uuid": "b9c682c0-d499-4514-8d4a-5c3e0ea126df",
+        "num_annotations": 30,
+        "description": null
+    },
+    {
+        "uuid": "c2247da1-5e86-4151-9c36-8b29c25283fb",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "530e27e7-dcf5-4f16-b604-15140463210f",
+        "last_frame_annotation_uuid": "91ba583b-c0c7-4f10-8378-99f883e4fd4d",
+        "num_annotations": 58,
+        "description": null
+    },
+    {
+        "uuid": "6905da63-0c63-439b-8ab2-a44149dae12a",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "bd538fbd-9f1d-4cd6-be25-0d1bbe5b026d",
+        "last_frame_annotation_uuid": "4f943fd8-c8b6-495e-8e34-73ab96ec736f",
+        "num_annotations": 152,
+        "description": null
+    },
+    {
+        "uuid": "1a273846-2f59-41bb-8535-4b60e8c57cf4",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "25fc1e74-f961-4c34-9717-3cd5a0572f4b",
+        "last_frame_annotation_uuid": "d281b950-2c53-4206-98d2-bdfc1501eb89",
+        "num_annotations": 36,
+        "description": null
+    },
+    {
+        "uuid": "8183eaec-11e8-46d1-a729-8eafca8a6653",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "109a72d2-6d81-4983-b08b-071344259858",
+        "last_frame_annotation_uuid": "bcad4419-9ac8-4307-82f6-cceb3ffe7c39",
+        "num_annotations": 58,
+        "description": null
+    },
+    {
+        "uuid": "8edb75ae-eb92-4c21-9a2e-44fd00365671",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "7a1d159c-c8a9-4426-a556-edbc2ea371be",
+        "last_frame_annotation_uuid": "87ecdb16-1637-4cff-b9b1-0c9771dbadd5",
+        "num_annotations": 27,
+        "description": null
+    },
+    {
+        "uuid": "498727d2-7241-4ed5-994a-3fa61b013865",
+        "category_name": "dynamic_object.human.pedestrian",
+        "first_frame_annotation_uuid": "430bc963-ea25-4a99-a803-177e68f3c84f",
+        "last_frame_annotation_uuid": "9b70c1be-f682-425b-b360-2656353dbb8b",
+        "num_annotations": 62,
+        "description": null
+    },
+    {
+        "uuid": "cb3bbbce-617f-4175-8686-50b1a6ff62c7",
+        "category_name": "dynamic_object.human.pedestrian",
+        "first_frame_annotation_uuid": "a51652de-605d-4e36-b104-9c22bfcfc70c",
+        "last_frame_annotation_uuid": "889effad-41cc-4033-8081-b135c014b37b",
+        "num_annotations": 72,
+        "description": null
+    },
+    {
+        "uuid": "d57388a2-57c4-46d9-8fec-971c36a385bf",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "c882084e-e893-4956-9505-b7d7f823c618",
+        "last_frame_annotation_uuid": "afea7b53-32e8-4ebf-a561-81b4700fb0e3",
+        "num_annotations": 70,
+        "description": null
+    },
+    {
+        "uuid": "bd7ba657-a6c6-4a77-a1dc-757ac99421a5",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "3c9ec33f-b10d-4954-ae12-c6cfc36e6be6",
+        "last_frame_annotation_uuid": "73546381-a11d-4369-96bc-162fd6dc2acd",
+        "num_annotations": 69,
+        "description": null
+    },
+    {
+        "uuid": "e1246fee-fd04-4747-99e5-6e882e996538",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "642153d0-c226-4651-ac06-baed48968617",
+        "last_frame_annotation_uuid": "e015501c-7aa1-420c-ac65-3a8812b5f8ee",
+        "num_annotations": 125,
+        "description": null
+    },
+    {
+        "uuid": "336a1a64-a0bf-4d20-9be4-f17262537905",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "2aae7eaf-bcd6-4956-be9c-c326b2762996",
+        "last_frame_annotation_uuid": "9f820f8c-2d50-43ea-9592-f96ca1798b08",
+        "num_annotations": 22,
+        "description": null
+    },
+    {
+        "uuid": "9c721364-2608-4d9b-bf70-2a3673804d44",
+        "category_name": "dynamic_object.vehicle.truck",
+        "first_frame_annotation_uuid": "a3918031-9e65-45e9-9060-3d8893bf329a",
+        "last_frame_annotation_uuid": "08bfe55d-b0be-4ca4-9b4a-2743c181ce2d",
+        "num_annotations": 58,
+        "description": null
+    },
+    {
+        "uuid": "8091327b-0945-4ccb-b1ec-e7a76edf041f",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "decba2c9-9802-4de8-b18b-7c3814c4cf63",
+        "last_frame_annotation_uuid": "9c6a18ae-0ced-4608-93b3-e50c95a191c9",
+        "num_annotations": 29,
+        "description": null
+    },
+    {
+        "uuid": "f34fc9ed-68cb-473c-b975-9e74320f0e13",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "582a7772-8829-4c9e-a5bf-4e682f4b5663",
+        "last_frame_annotation_uuid": "28724dec-c9dc-45a4-8b45-c9cc9039db49",
+        "num_annotations": 48,
+        "description": null
+    },
+    {
+        "uuid": "af414557-86e4-4c2f-9258-449ef9968da3",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "9e0a120b-714a-4fc6-a285-f915c694f71b",
+        "last_frame_annotation_uuid": "eeb23668-1a5b-4e60-9523-90a8a286f821",
+        "num_annotations": 50,
+        "description": null
+    },
+    {
+        "uuid": "23b85cc7-44e6-425e-98b2-200827616806",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "83dec084-1173-4338-a472-6114d51ce0e0",
+        "last_frame_annotation_uuid": "d690b066-3f03-4a69-865d-cd089f2d2b53",
+        "num_annotations": 137,
+        "description": null
+    },
+    {
+        "uuid": "4d7df2dc-f3e4-484c-9888-af638e225239",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "53d9c1ff-c800-4541-b06c-3eade6b4286d",
+        "last_frame_annotation_uuid": "36803501-658f-4879-9df1-4998508f6b00",
+        "num_annotations": 134,
+        "description": null
+    },
+    {
+        "uuid": "13443c8a-f769-4b41-9358-084cef536894",
+        "category_name": "dynamic_object.vehicle.bus",
+        "first_frame_annotation_uuid": "625c3f36-1696-4355-9ed4-12b411b1a6e7",
+        "last_frame_annotation_uuid": "8d76e03d-16e6-458f-8783-55e196215ca6",
+        "num_annotations": 33,
+        "description": null
+    },
+    {
+        "uuid": "7c3b8616-9cb6-4217-af0a-cc3c01be80f2",
+        "category_name": "dynamic_object.vehicle.bus",
+        "first_frame_annotation_uuid": "92c13df6-011f-45b8-a5f5-1f4ca0c72562",
+        "last_frame_annotation_uuid": "ae2a7e7b-ea26-4497-83aa-d1842a2d7e14",
+        "num_annotations": 31,
+        "description": null
+    },
+    {
+        "uuid": "fd590baa-716b-4d66-9afd-c17763d96151",
+        "category_name": "dynamic_object.vehicle.truck",
+        "first_frame_annotation_uuid": "bb12e5f6-faeb-4589-b7f4-675819ef64ca",
+        "last_frame_annotation_uuid": "dd67cc94-aea7-4a6f-9692-c1cdfcadd486",
+        "num_annotations": 37,
+        "description": null
+    },
+    {
+        "uuid": "5cca90a1-c2ef-45bd-aa22-0fa834d43c0a",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "ef8d0158-19b1-4e79-baa2-807e40508b47",
+        "last_frame_annotation_uuid": "8a925fcd-6c81-4e5a-8c9d-71da40126135",
+        "num_annotations": 50,
+        "description": null
+    },
+    {
+        "uuid": "31e107b0-b202-4426-976e-e938da4f06cb",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "cde1b9fe-118b-4cb2-9cd3-cdb567f89bda",
+        "last_frame_annotation_uuid": "40f969d8-9b09-4083-a9d9-92581bfcfc03",
+        "num_annotations": 155,
+        "description": null
+    },
+    {
+        "uuid": "02aea5e0-c477-457c-ab27-306167af7ecc",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "6d3c8e86-8c01-4314-b2c5-09df7e6f2095",
+        "last_frame_annotation_uuid": "627392bd-33bf-4093-8627-8c2089f0f8ef",
+        "num_annotations": 153,
+        "description": null
+    },
+    {
+        "uuid": "dd77b5da-1662-4560-88eb-2c7d34d0b33e",
+        "category_name": "dynamic_object.vehicle.truck",
+        "first_frame_annotation_uuid": "dda57516-132d-4bca-a827-e839af76acc5",
+        "last_frame_annotation_uuid": "08c30570-dcd6-4f10-a46d-267f53f39492",
+        "num_annotations": 45,
+        "description": null
+    },
+    {
+        "uuid": "23fc3214-b60a-4c4a-a78b-60171a9e0b32",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "b41b73ba-5b5b-41d5-9985-67863884efb8",
+        "last_frame_annotation_uuid": "e9ec68c9-de8e-40cd-979b-dd27fe7393f1",
+        "num_annotations": 55,
+        "description": null
+    },
+    {
+        "uuid": "9b75cba5-0563-4d0b-96f7-c40ceb9d6172",
+        "category_name": "dynamic_object.vehicle.truck",
+        "first_frame_annotation_uuid": "629a3f78-aa7a-4956-b3e3-507d9107d878",
+        "last_frame_annotation_uuid": "7887359e-567b-4f0f-a069-b4d5f03c53de",
+        "num_annotations": 29,
+        "description": null
+    },
+    {
+        "uuid": "429d5776-4248-472f-9ce4-f24975a8604d",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "9287929f-0f33-4653-ab69-db343f9da2ec",
+        "last_frame_annotation_uuid": "6c75c630-3e74-42c0-9744-eea612c72cc0",
+        "num_annotations": 28,
+        "description": null
+    },
+    {
+        "uuid": "3058c7f0-3a46-499c-9894-01956cd23227",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "192be9a9-c174-4c42-8eb9-baa3937f95e6",
+        "last_frame_annotation_uuid": "06668491-f96b-4ba9-a1ad-8f6293211c28",
+        "num_annotations": 29,
+        "description": null
+    },
+    {
+        "uuid": "35fd9983-4408-46a1-bb6e-7b86885e8af8",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "177b6357-1673-4fe7-8218-5f51dacceefd",
+        "last_frame_annotation_uuid": "81f6acf8-e042-4dff-a333-ae5c3985bac4",
+        "num_annotations": 125,
+        "description": null
+    },
+    {
+        "uuid": "30277621-659f-490e-803f-318b24b869a8",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "dbc33a9c-7db2-4cda-9edb-30953c63b0c2",
+        "last_frame_annotation_uuid": "3d9adb4a-674a-432b-addf-420af414aa43",
+        "num_annotations": 49,
+        "description": null
+    },
+    {
+        "uuid": "58953989-2aca-45d2-bf25-a3fc3863afd9",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "3f4004aa-8b11-4980-ac98-8d8f8437339f",
+        "last_frame_annotation_uuid": "a4fa2373-5e79-4817-978a-3b12bf4a1f73",
+        "num_annotations": 41,
+        "description": null
+    },
+    {
+        "uuid": "59ade4dd-5752-44fe-b9c9-1846e8d85f09",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "71058748-d61a-47ad-aec2-4ca6aa7652af",
+        "last_frame_annotation_uuid": "764716e8-d547-4f49-95e1-df9e6a7f56d9",
+        "num_annotations": 113,
+        "description": null
+    },
+    {
+        "uuid": "87eb2772-540a-4840-ab88-890cdd43600b",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "554d5b7e-7f21-46e7-829a-af080d343f76",
+        "last_frame_annotation_uuid": "a4f8fee9-7e91-439a-b723-34fcf5208ac2",
+        "num_annotations": 34,
+        "description": null
+    },
+    {
+        "uuid": "dcb2dea5-eead-4399-bd28-1e31174b8bf8",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "5154e486-cdc4-4242-9028-72e4cda5bc12",
+        "last_frame_annotation_uuid": "6e768e58-cdf1-422e-ba31-0ac1337602e9",
+        "num_annotations": 42,
+        "description": null
+    },
+    {
+        "uuid": "f42704b9-0a64-4a16-bc0c-96ed377c8385",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "8a18ea45-7261-411b-8209-257db1ce0979",
+        "last_frame_annotation_uuid": "fdd22711-137a-4c28-939c-1aa97e8245ea",
+        "num_annotations": 8,
+        "description": null
+    },
+    {
+        "uuid": "9abe78ea-79a9-4b8a-8205-9bf0ebb36434",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "36bcfe73-ea37-49fd-8879-daebc5aa0de7",
+        "last_frame_annotation_uuid": "5fb467ae-f8b3-411a-89d0-a67c8e58cb90",
+        "num_annotations": 46,
+        "description": null
+    },
+    {
+        "uuid": "e83c5827-7340-4920-98ef-e48b7f5fa3c6",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "343b3f4e-450e-4176-82dc-4d0d96ad195b",
+        "last_frame_annotation_uuid": "bef2f5fe-d96b-47d1-b088-14a8552b92d9",
+        "num_annotations": 50,
+        "description": null
+    },
+    {
+        "uuid": "c951ec0e-ca13-4b7d-a686-9446d3d9e1a7",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "a646ce1b-ec5a-4ba7-9d66-604da0c91edf",
+        "last_frame_annotation_uuid": "242ef5bd-7d37-45d5-833b-d4fdec6c5042",
+        "num_annotations": 38,
+        "description": null
+    },
+    {
+        "uuid": "a252f8ea-d0b0-4c83-a90d-5176f58212f9",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "88b6942e-a1a0-496f-bc00-32a4f2c00d9e",
+        "last_frame_annotation_uuid": "704d7e98-5870-437c-b04d-493f2de81c86",
+        "num_annotations": 47,
+        "description": null
+    },
+    {
+        "uuid": "481f8649-4e2e-43a4-84f3-1b32a65e1356",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "41893505-7f90-4c4e-bfc7-91005350b56f",
+        "last_frame_annotation_uuid": "5ae07e6c-ad3a-4308-b40b-498d96dc6ddb",
+        "num_annotations": 163,
+        "description": null
+    },
+    {
+        "uuid": "9dbaa312-0c52-469f-be2a-60b9e74df040",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "1ef699fd-29c3-40e6-8241-7e1515956e33",
+        "last_frame_annotation_uuid": "3a79a8a1-4249-41a8-a0c8-a3d404655f4a",
+        "num_annotations": 180,
+        "description": null
+    },
+    {
+        "uuid": "55de2b3a-74c7-46f0-b6d3-caf814870a17",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "ec69b745-7949-43fe-b460-4d7bd297ce75",
+        "last_frame_annotation_uuid": "3fd42f21-7301-4507-b5b1-35c1c18b074c",
+        "num_annotations": 47,
+        "description": null
+    },
+    {
+        "uuid": "0b68b8b5-0270-4860-8903-e0b53b3c0705",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "9deb0adc-e16b-410e-8549-05531b95cd27",
+        "last_frame_annotation_uuid": "ecc1bbd4-5c6e-447a-9f32-b7566d4c9607",
+        "num_annotations": 8,
+        "description": null
+    },
+    {
+        "uuid": "0c6f27c5-5b2f-42f0-b274-8dc878a20f62",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "0198ccce-1261-4d69-ba76-813b8e85f93a",
+        "last_frame_annotation_uuid": "eacc56f3-e621-4c7f-a656-819dda91fe8f",
+        "num_annotations": 3,
+        "description": null
+    },
+    {
+        "uuid": "f7f0839e-41c3-45a5-8e43-a78aaef55bf8",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "f6c239b0-2038-47cf-8986-685ae35e506a",
+        "last_frame_annotation_uuid": "50080f3c-8804-47b0-afe1-9bd539855041",
+        "num_annotations": 21,
+        "description": null
+    },
+    {
+        "uuid": "784f8f7f-270d-4928-a76b-e193992279cc",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "f65e9309-1d20-4165-8660-230617111e1b",
+        "last_frame_annotation_uuid": "7062e58b-ee9b-49ae-89cf-ba997df68350",
+        "num_annotations": 128,
+        "description": null
+    },
+    {
+        "uuid": "afded1b0-995d-40e5-b292-1d8296eed14f",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "c73c41f6-49c4-4196-8420-4cd21e79df9c",
+        "last_frame_annotation_uuid": "3d952fc0-c896-4c09-8ed3-6e7718fa3619",
+        "num_annotations": 10,
+        "description": null
+    },
+    {
+        "uuid": "d1e25715-0b63-4ead-87e2-b8c284f7de4b",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "3169da3a-daf2-42e1-ad47-5f6cb26f0d5c",
+        "last_frame_annotation_uuid": "52cad3de-ae77-4187-94bc-098782499d93",
+        "num_annotations": 12,
+        "description": null
+    },
+    {
+        "uuid": "c1e5f552-c23b-4b2a-bead-47d2d8eeb8f3",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "d8002ec1-64e5-412e-ae56-12b05cc8cac9",
+        "last_frame_annotation_uuid": "de27bef1-4b27-44ec-90c3-5ba9d16d7881",
+        "num_annotations": 26,
+        "description": null
+    },
+    {
+        "uuid": "2c3a044c-f63d-49a9-9420-ee1b2bb88186",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "2e49ffae-7ce6-4f91-8368-20dc7efe0189",
+        "last_frame_annotation_uuid": "2fa4f566-ddac-4812-b649-22a0aacccfa9",
+        "num_annotations": 27,
+        "description": null
+    },
+    {
+        "uuid": "087e612b-b098-4343-bb34-abd59064ad15",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "7026775b-27e2-401f-a18b-6e443025e008",
+        "last_frame_annotation_uuid": "dc6958be-be93-4353-9ce7-ca612ff7b29b",
+        "num_annotations": 125,
+        "description": null
+    },
+    {
+        "uuid": "64560c5f-fab4-42d0-88be-32828e713a92",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "7e1266e0-72cf-4bdd-af76-cf9546bdb52f",
+        "last_frame_annotation_uuid": "186b280e-764c-415f-a989-31355d230bd0",
+        "num_annotations": 134,
+        "description": null
+    },
+    {
+        "uuid": "039ff5e9-1a42-4842-8be0-bd92e7dcef78",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "318eda3f-2082-4371-91dd-53b596dfc460",
+        "last_frame_annotation_uuid": "41a9ec70-d5c0-4be5-a865-4d9081bbe296",
+        "num_annotations": 131,
+        "description": null
+    },
+    {
+        "uuid": "fe2a3f61-3f2d-431a-8514-26bb773cc7ba",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "4b64aec6-b264-41dc-adb7-bc5c8066a850",
+        "last_frame_annotation_uuid": "8ec4bc2f-1094-475e-9fcf-162e5dc8906c",
+        "num_annotations": 132,
+        "description": null
+    },
+    {
+        "uuid": "92834fe0-f179-4d8a-9d41-7c226a3864e5",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "e8b726cb-5072-4d4b-b9bf-bedddf6e326f",
+        "last_frame_annotation_uuid": "362a7b0e-75c7-40fa-b4b4-0f9aedd5e47e",
+        "num_annotations": 120,
+        "description": null
+    },
+    {
+        "uuid": "c55ac708-9a46-4c1a-8533-de9a9027abce",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "f6bcf182-0b5a-43eb-84d4-29acf264a2a6",
+        "last_frame_annotation_uuid": "491ce03e-211e-41ba-8969-30c88beb36ba",
+        "num_annotations": 129,
+        "description": null
+    },
+    {
+        "uuid": "21f9f5f2-b4cc-4c6a-89ed-f5495ca44fa4",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "018d23c8-eb52-4be9-a95c-8cea4588536b",
+        "last_frame_annotation_uuid": "42749aff-5b71-48b5-9fa8-aeb71058f5b4",
+        "num_annotations": 137,
+        "description": null
+    },
+    {
+        "uuid": "a0ca2223-72f3-4d7f-83b0-bdc1c036b0f9",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "02fb044b-350d-4728-9513-a49c8ec7c7f6",
+        "last_frame_annotation_uuid": "ed049332-ff17-40a1-9660-210aebd162a0",
+        "num_annotations": 145,
+        "description": null
+    },
+    {
+        "uuid": "7522bf9e-025e-43b9-99b2-f58559d4f643",
+        "category_name": "movable_object.barrier",
+        "first_frame_annotation_uuid": "79117c77-136e-4071-abf8-f70aaeb65d5d",
+        "last_frame_annotation_uuid": "950c1828-aa9b-473d-87e0-2a076a3f1d08",
+        "num_annotations": 101,
+        "description": null
+    },
+    {
+        "uuid": "bdca001f-41e2-4b8c-9edb-ce56e2bfc1cd",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "3cfc9cc7-5950-4e1f-8309-af08bca12164",
+        "last_frame_annotation_uuid": "db4e7e05-17c2-4c0e-8299-1d9b8eebd4a7",
+        "num_annotations": 133,
+        "description": null
+    },
+    {
+        "uuid": "219091e3-f6bf-4154-b706-f68f44d629b7",
+        "category_name": "dynamic_object.vehicle.truck",
+        "first_frame_annotation_uuid": "b3edddd7-1d66-4c77-9b6e-35255850a43f",
+        "last_frame_annotation_uuid": "f5da760e-5ac9-4a04-b330-91bbf2fa02e2",
+        "num_annotations": 121,
+        "description": null
+    },
+    {
+        "uuid": "e43dc5a2-4f50-461e-9774-a9895bdb5b42",
+        "category_name": "dynamic_object.vehicle.car",
+        "first_frame_annotation_uuid": "bb09c880-1f72-4a7f-9ef8-189539eef80f",
+        "last_frame_annotation_uuid": "edcc124b-8772-48e9-902e-0a98f50f6039",
+        "num_annotations": 127,
+        "description": null
     }
 ]

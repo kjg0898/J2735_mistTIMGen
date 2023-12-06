@@ -21,6 +21,7 @@ import java.util.List;
 @Setter
 @ToString
 public class DatasetDto extends BaseDto {
+    private String uuid;
     @JsonProperty("log_uuid")
     private String logUuid;
     @JsonProperty("scenario_names")

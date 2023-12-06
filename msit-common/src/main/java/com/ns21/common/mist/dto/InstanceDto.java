@@ -20,6 +20,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class InstanceDto extends BaseDto {
+    private String uuid;
     @JsonProperty("category_name")
     private String categoryName;
     @JsonProperty("first_frame_annotation_uuid")
