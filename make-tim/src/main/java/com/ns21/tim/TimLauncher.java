@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
  * fileName       : TimLauncher.java
  * author         : kjg08
  * date           : 2023-11-17
- * description    :
+ * description    :Vert.x 프레임워크를 사용하는 런처 클래스(애플리케이션의 진입점)
  * ===========================================================
  * DATE              AUTHOR             NOTE
  * -----------------------------------------------------------

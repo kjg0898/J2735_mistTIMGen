@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 /**
  * fileName       : MetaDataExtracting.java
@@ -26,8 +27,9 @@ public class MetaDataExtracting {
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
     // 파일 처리 메서드
-    public void processFiles() {
+    public CompletableFuture<Void> processFiles() {
         String path = "msit-common/src/main/resources/metadata/";
+        return CompletableFuture.runAsync(() -> {
             processDatasets(path + "dataset.json");
             processEgoPoses(path + "ego_pose.json");
             processFrameAnnotations(path + "frame_annotation.json");
@@ -37,7 +39,7 @@ public class MetaDataExtracting {
             processLogs(path + "log.json");
             processPresets(path + "preset.json");
             processSensors(path + "sensor.json");
-
+        });
     }
 
 
@@ -46,6 +48,7 @@ public class MetaDataExtracting {
             List<DatasetDto> datasets = readDataFromFile(filePath, new TypeReference<>() {
             });
             DataStorage.getInstance().storeDatasets(datasets);
+            logger.info("reading  dataset.json file .... : " + filePath);
         } catch (IOException e) {
             logger.error("Error reading or parsing Datasets file: " + filePath, e);
         }
@@ -56,6 +59,7 @@ public class MetaDataExtracting {
             List<EgoPoseDto> egoPoses = readDataFromFile(filePath, new TypeReference<>() {
             });
             DataStorage.getInstance().storeEgoPoses(egoPoses);
+            logger.info("reading  ego_pose.json file .... : " + filePath);
         } catch (IOException e) {
             logger.error("Error reading or parsing EgoPoses file: " + filePath, e);
         }
@@ -66,6 +70,7 @@ public class MetaDataExtracting {
             List<FrameAnnotationDto> frameAnnotations = readDataFromFile(filePath, new TypeReference<>() {
             });
             DataStorage.getInstance().storeFrameAnnotations(frameAnnotations);
+            logger.info("reading  frame_annotation.json file .... : " + filePath);
         } catch (IOException e) {
             logger.error("Error reading or parsing FrameAnnotations file: " + filePath, e);
         }
@@ -76,6 +81,7 @@ public class MetaDataExtracting {
             List<FrameDataDto> frameDatas = readDataFromFile(filePath, new TypeReference<>() {
             });
             DataStorage.getInstance().storeFrameDatas(frameDatas);
+            logger.info("reading  frame_data.json file .... : " + filePath);
         } catch (IOException e) {
             logger.error("Error reading or parsing FrameDatas file: " + filePath, e);
         }
@@ -86,6 +92,7 @@ public class MetaDataExtracting {
             List<FrameDto> frames = readDataFromFile(filePath, new TypeReference<>() {
             });
             DataStorage.getInstance().storeFrames(frames);
+            logger.info("reading  frame.json file .... : " + filePath);
         } catch (IOException e) {
             logger.error("Error reading or parsing Frames file: " + filePath, e);
         }
@@ -96,6 +103,7 @@ public class MetaDataExtracting {
             List<InstanceDto> instances = readDataFromFile(filePath, new TypeReference<>() {
             });
             DataStorage.getInstance().storeInstances(instances);
+            logger.info("reading  instance.json file .... : " + filePath);
         } catch (IOException e) {
             logger.error("Error reading or parsing Instances file: " + filePath, e);
         }
@@ -106,6 +114,7 @@ public class MetaDataExtracting {
             List<LogDto> logs = readDataFromFile(filePath, new TypeReference<>() {
             });
             DataStorage.getInstance().storeLogs(logs);
+            logger.info("reading  log.json file .... : " + filePath);
         } catch (IOException e) {
             logger.error("Error reading or parsing Logs file: " + filePath, e);
         }
@@ -116,6 +125,7 @@ public class MetaDataExtracting {
             PresetDto presets = readDataFromFile(filePath, new TypeReference<>() {
             });
             DataStorage.getInstance().storePresets(presets);
+            logger.info("reading  preset.json file .... : " + filePath);
         } catch (IOException e) {
             logger.error("Error reading or parsing Presets file: " + filePath, e);
         }
@@ -126,6 +136,7 @@ public class MetaDataExtracting {
             List<SensorDto> sensors = readDataFromFile(filePath, new TypeReference<>() {
             });
             DataStorage.getInstance().storeSensors(sensors);
+            logger.info("reading  sensor.json file .... : " + filePath);
         } catch (IOException e) {
             logger.error("Error reading or parsing Sensors file: " + filePath, e);
         }

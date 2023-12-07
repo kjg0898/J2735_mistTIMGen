@@ -27,8 +27,8 @@ public class MetaDataConvertUtil {
 
     //timestamp를 시간으로 만들때 에 사용
     public static int[] convertTimestamp(String timestampString) {
-        // Unix 타임스탬프를 초 단위로 변환
-        long timestampInSeconds = (long) Double.parseDouble(timestampString);
+        // Unix 타임스탬프를 long으로 변환
+        long timestampInSeconds = Long.parseLong(timestampString.split("\\.")[0]);
 
         // LocalDateTime으로 변환
         ZonedDateTime dateTime = Instant.ofEpochSecond(timestampInSeconds).atZone(ZoneId.of("UTC"));
@@ -69,6 +69,36 @@ public class MetaDataConvertUtil {
             return new long[]{latitudeInMicroDegrees, longitudeInMicroDegrees, elevationInMeters};
         });
     }
+
+   //private static class UtmKey {
+   //    private final double utmX;
+   //    private final double utmY;
+   //    private final int utmZone;
+   //    private final double elevation;
+
+   //    UtmKey(double utmX, double utmY, int utmZone, double elevation) {
+   //        this.utmX = utmX;
+   //        this.utmY = utmY;
+   //        this.utmZone = utmZone;
+   //        this.elevation = elevation;
+   //    }
+
+   //    @Override
+   //    public boolean equals(Object o) {
+   //        if (this == o) return true;
+   //        if (o == null || getClass() != o.getClass()) return false;
+   //        UtmKey utmKey = (UtmKey) o;
+   //        return Double.compare(utmKey.utmX, utmX) == 0 &&
+   //                Double.compare(utmKey.utmY, utmY) == 0 &&
+   //                utmZone == utmKey.utmZone &&
+   //                Double.compare(utmKey.elevation, elevation) == 0;
+   //    }
+
+   //    @Override
+   //    public int hashCode() {
+   //        return Objects.hash(utmX, utmY, utmZone, elevation);
+   //    }
+   //}
 
     //rotation(ego_pose) 방향으로 변환할때 사용
     public static String quaternionToFormattedString(List<Double> quaternion) {

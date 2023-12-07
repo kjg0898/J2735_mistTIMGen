@@ -21,7 +21,6 @@ import static com.ns21.common.util.MetaDataConvertUtil.*;
  * -----------------------------------------------------------
  * 2023-11-24        kjg08           최초 생성
  */
-//egoPose.json  frame_annotation.json log.json
 public class EvaValueCreator {
     private static int msgCnt = 0;
 
@@ -31,7 +30,7 @@ public class EvaValueCreator {
         // UuidMatching 클래스를 사용하여 관련된 데이터의 JSON 문자열을 가져옵니다.
         List<String> relatedUuids = UuidMatching.UuidPut();
 
-        // 가정: relatedUuids에는 연관된 데이터의 JSON 문자열이 포함되어 있습니다.
+        //  relatedUuids에는 연관된 데이터의 JSON 문자열이 포함되어 있습니다.
         for (String uuidJson : relatedUuids) {
             // JSON 문자열을 Map 객체로 변환합니다.
             Map uuidMap = mapper.readValue(uuidJson, Map.class);
@@ -39,7 +38,6 @@ public class EvaValueCreator {
             // RSA 메시지를 구성합니다.
             Map<String, Object> evaMessage = new LinkedHashMap<>();
             // uuidMap에서 필요한 데이터를 추출하여 RSA 메시지를 구성합니다.
-
             // 공통 필드를 추가합니다.
             evaMessage.put("msgCnt", msgCnt);
             msgCnt = (msgCnt + 1) % 128;  // msgCnt가 127을 넘지 않도록 함
@@ -53,8 +51,7 @@ public class EvaValueCreator {
 
             // 위치 및 방향 정보를 추가합니다.
             Map<String, Object> position = new LinkedHashMap<>();
-            // convertTimestampToUtcMap에는 문자열 형태의 타임스탬프를 전달
-            position.put("utcTime", convertTimestampToUtcMap(Long.toString(timestamp)));
+
 
             List<Double> translation = (List<Double>) uuidMap.get("egoPose_translation");
             double utmX = translation.get(0); // ex)326865.27824246883
@@ -63,6 +60,8 @@ public class EvaValueCreator {
             double elevation = translation.get(2); // ex)49.126053147017956
             long[] utmToLatLon = MetaDataConvertUtil.utmToLatLon(utmX, utmY, utmZone, elevation);
 
+            // convertTimestampToUtcMap에는 문자열 형태의 타임스탬프를 전달
+            position.put("utcTime", convertTimestampToUtcMap(Long.toString(timestamp)));
             position.put("long", utmToLatLon[1]);  // ego_pose.json 파일의 translation,
             position.put("lat", utmToLatLon[0]);  // ego_pose.json 파일의 translation,
             position.put("elevation", utmToLatLon[2]);  // ego_pose.json 파일의 translation,
@@ -84,10 +83,10 @@ public class EvaValueCreator {
             evaMessage.put("regional", regional);
 
             // 최종적인 RSA 메시지를 구성합니다.
-            Map<String, Object> rsaMsg = new LinkedHashMap<>();
-            rsaMsg.put("rsaMsg", evaMessage);
+            Map<String, Object> evaMsg = new LinkedHashMap<>();
+            evaMsg.put("rsaMsg", evaMessage);
 
-            messages.add(mapper.writeValueAsString(rsaMsg));
+            messages.add(mapper.writeValueAsString(evaMsg));
 
         }
         return messages; // 여러 메시지를 리스트로 반환

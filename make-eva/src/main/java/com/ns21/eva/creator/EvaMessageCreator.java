@@ -9,6 +9,7 @@ import io.vertx.core.json.JsonObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -29,32 +30,38 @@ public class EvaMessageCreator extends AbstractVerticle {
     private long timerId; // 클래스 레벨 변수로 선언
 
     @Override
-    public void start() throws Exception {
+    public void start()  {
         // 메타데이터 추출 및 처리
         MetaDataExtracting extractor = new MetaDataExtracting();
-        extractor.processFiles();
-
-        // 메시지 목록은 한 번만 생성
-        jsonMessages = EvaValueCreator.createEvaMessage();
-        logger.info("Total messages generated: {}", jsonMessages.size());
-
-        // 모든 메시지 처리 후 타이머 중지를 위한 핸들러 ID 저장
-         timerId = vertx.setPeriodic(1000, id -> {
-            if (!jsonMessages.isEmpty() && currentIndex < jsonMessages.size()) {
-                // 현재 인덱스에 따라 하나의 메시지를 선택합니다.
-                String jsonMessage = jsonMessages.get(currentIndex);
-                logger.info("Sending message at index: {}", currentIndex);
-
-                // 메시지 처리 로직
-                processMessage(jsonMessage);
-
-                // 현재 인덱스를 증가시키고, 모든 메시지 처리 시 타이머 중지
-                currentIndex++;
-                if (currentIndex >= jsonMessages.size()) {
-                    logger.info("All messages sent. Stopping timer.");
-                    vertx.cancelTimer(timerId);
-                }
+        extractor.processFiles().thenRun(() -> {
+            logger.info("----------------------  Reading and parsing metadata Please wait . . .  ----------------------");
+            // 메시지 목록은 한 번만 생성
+            try {
+                jsonMessages = EvaValueCreator.createEvaMessage();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
+            logger.info("----------------------  The task is complete  ----------------------");
+            logger.info("Total messages generated: {}", jsonMessages.size());
+
+            // 모든 메시지 처리 후 타이머 중지를 위한 핸들러 ID 저장
+            timerId = vertx.setPeriodic(1000, id -> {
+                if (!jsonMessages.isEmpty() && currentIndex < jsonMessages.size()) {
+                    // 현재 인덱스에 따라 하나의 메시지를 선택합니다.
+                    String jsonMessage = jsonMessages.get(currentIndex);
+                    logger.info("Sending message at index: {}", currentIndex);
+
+                    // 메시지 처리 로직
+                    processMessage(jsonMessage);
+
+                    // 현재 인덱스를 증가시키고, 모든 메시지 처리 시 타이머 중지
+                    currentIndex++;
+                    if (currentIndex >= jsonMessages.size()) {
+                        logger.info("All messages sent. Stopping timer.");
+                        vertx.cancelTimer(timerId);
+                    }
+                }
+            });
         });
     }
 
