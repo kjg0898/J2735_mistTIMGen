@@ -24,6 +24,8 @@ import java.util.concurrent.ConcurrentHashMap;
  * 2023-11-27        kjg08           최초 생성
  */
 public class MetaDataConvertUtil {
+    private static final CRSFactory crsFactory = new CRSFactory();
+    private static final ConcurrentHashMap<String, CoordinateReferenceSystem> crsCache = new ConcurrentHashMap<>();
 
     //timestamp를 시간으로 만들때 에 사용
     public static int[] convertTimestamp(String timestampString) {
@@ -42,19 +44,28 @@ public class MetaDataConvertUtil {
         return new int[]{startYear, startTime};
     }
 
-    //translation 을 위경고도로 만들때 에 사용
-    private static final ConcurrentHashMap<String, long[]> cache = new ConcurrentHashMap<>();
-    public static long[] utmToLatLon(double utmX, double utmY, int utmZone, double elevation) {
-        String key = utmX + "-" + utmY + "-" + utmZone + "-" + elevation;
 
-        // 캐시에서 결과를 조회합니다.
-        return cache.computeIfAbsent(key, k -> {
-            CRSFactory crsFactory = new CRSFactory();
+    public static class CoordinateConverter {
+        private static final ConcurrentHashMap<String, long[]> cache = new ConcurrentHashMap<>();
+        private static final int COORDINATE_PRECISION = 3; // 좌표를 반올림할 소수점 자리수
 
-            // 좌표계 정의 및 변환 로직
+        public static long[] utmToLatLon(double utmX, double utmY, int utmZone, double elevation) {
+            double roundedUtmX = roundToPrecision(utmX);
+            double roundedUtmY = roundToPrecision(utmY);
+            String key = roundedUtmX + "-" + roundedUtmY + "-" + utmZone + "-" + elevation;
+
+            return cache.computeIfAbsent(key, k -> transformCoordinates(roundedUtmX, roundedUtmY, utmZone, elevation));
+        }
+
+        private static double roundToPrecision(double value) {
+            double scale = Math.pow(10, CoordinateConverter.COORDINATE_PRECISION);
+            return Math.round(value * scale) / scale;
+        }
+
+        private static long[] transformCoordinates(double utmX, double utmY, int utmZone, double elevation) {
             String utmCrs = "EPSG:326" + utmZone;
-            CoordinateReferenceSystem utm = crsFactory.createFromName(utmCrs);
-            CoordinateReferenceSystem latLon = crsFactory.createFromName("EPSG:4326");
+            CoordinateReferenceSystem utm = crsCache.computeIfAbsent(utmCrs, k -> crsFactory.createFromName(utmCrs));
+            CoordinateReferenceSystem latLon = crsCache.computeIfAbsent("EPSG:4326", k -> crsFactory.createFromName("EPSG:4326"));
 
             BasicCoordinateTransform transform = new BasicCoordinateTransform(utm, latLon);
             ProjCoordinate utmCoord = new ProjCoordinate(utmX, utmY);
@@ -65,40 +76,11 @@ public class MetaDataConvertUtil {
             long longitudeInMicroDegrees = (long) (latLonCoord.x * 10_000_000);
             long elevationInMeters = (long) elevation;
 
-            // 새로 계산된 결과를 반환합니다.
             return new long[]{latitudeInMicroDegrees, longitudeInMicroDegrees, elevationInMeters};
-        });
+        }
     }
 
-   //private static class UtmKey {
-   //    private final double utmX;
-   //    private final double utmY;
-   //    private final int utmZone;
-   //    private final double elevation;
 
-   //    UtmKey(double utmX, double utmY, int utmZone, double elevation) {
-   //        this.utmX = utmX;
-   //        this.utmY = utmY;
-   //        this.utmZone = utmZone;
-   //        this.elevation = elevation;
-   //    }
-
-   //    @Override
-   //    public boolean equals(Object o) {
-   //        if (this == o) return true;
-   //        if (o == null || getClass() != o.getClass()) return false;
-   //        UtmKey utmKey = (UtmKey) o;
-   //        return Double.compare(utmKey.utmX, utmX) == 0 &&
-   //                Double.compare(utmKey.utmY, utmY) == 0 &&
-   //                utmZone == utmKey.utmZone &&
-   //                Double.compare(utmKey.elevation, elevation) == 0;
-   //    }
-
-   //    @Override
-   //    public int hashCode() {
-   //        return Objects.hash(utmX, utmY, utmZone, elevation);
-   //    }
-   //}
 
     //rotation(ego_pose) 방향으로 변환할때 사용
     public static String quaternionToFormattedString(List<Double> quaternion) {

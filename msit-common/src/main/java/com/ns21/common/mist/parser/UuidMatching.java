@@ -9,6 +9,7 @@ import java.lang.reflect.Field;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.function.Function;
+
 /**
  * fileName       : UuidMatching.java
  * author         : kjg08
@@ -116,13 +117,24 @@ public class UuidMatching {
     private static <T extends BaseDto> Map<String, T> createMapFromList(List<T> list) {
         return list.stream().collect(Collectors.toMap(T::getUuid, Function.identity(), (a, b) -> a));
     }
+
     private static Map<String, Object> createPrefixedMap(Object dto, String prefix) throws JsonToJ2735Exception {
         Map<String, Object> prefixedMap = new LinkedHashMap<>();
         Field[] fields = dto.getClass().getDeclaredFields();
         for (Field field : fields) {
             field.setAccessible(true);
             try {
-                prefixedMap.put(prefix + "_" + field.getName(), field.get(dto));
+                Object value = field.get(dto);
+                if (value == null || (value instanceof String && ((String) value).isEmpty())) {
+                    // 문자열 필드의 경우 빈 문자열이면 "0"으로 설정
+                    if (field.getType().equals(String.class)) {
+                        value = "0";
+                    } else if (field.getType().equals(int.class) || field.getType().equals(double.class) || field.getType().equals(long.class)) {
+                        // 숫자 필드의 경우 0으로 설정
+                        value = 0;
+                    }
+                }
+                prefixedMap.put(prefix + "_" + field.getName(), value);
             } catch (IllegalAccessException e) {
                 throw new JsonToJ2735Exception("Error accessing field in DTO: " + prefix, e);
             }

@@ -37,7 +37,7 @@ public class TimMessageCreator extends AbstractVerticle {
             logger.info("----------------------  Reading and parsing metadata Please wait . . .  ----------------------");
             // 메시지 목록은 한 번만 생성
             try {
-                jsonMessages = TimValueCreator.createRsaMessage();
+                jsonMessages = TimValueCreator.createTimMessage();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -70,7 +70,7 @@ public class TimMessageCreator extends AbstractVerticle {
             // 메시지 아이디 추가 및 변환 로직
             JsonObject originalJsonObject = new JsonObject(jsonMessage);
             JsonObject newJsonObject = new JsonObject();
-            newJsonObject.put("messageId", J2735MessageID.RSA.getId());
+            newJsonObject.put("messageId", J2735MessageID.TIM.getId());
             newJsonObject.put("value", originalJsonObject);
             jsonMessage = newJsonObject.toString();
 
