@@ -59,6 +59,7 @@ public class UuidMatching {
                 for (FrameAnnotationDto frameAnnotation : relevantFrameAnnotations) {
                     InstanceDto instance = instanceMap.get(frameAnnotation.getInstanceUuid());
 
+                    // 필요한 모든 구성 요소(에고 포즈, 센서, 로그, 인스턴스)가 존재하면 모든 관련 객체에 대한 포괄적인 맵(UUID) 구축을 시작
                     if (egoPose != null && sensor != null && log != null && instance != null) {
                         Map<String, Object> uuid;
                         try {
@@ -117,7 +118,7 @@ public class UuidMatching {
     private static <T extends BaseDto> Map<String, T> createMapFromList(List<T> list) {
         return list.stream().collect(Collectors.toMap(T::getUuid, Function.identity(), (a, b) -> a));
     }
-
+//데이터 세트 UUID의 경우 "dataset_uuid"
     private static Map<String, Object> createPrefixedMap(Object dto, String prefix) throws JsonToJ2735Exception {
         Map<String, Object> prefixedMap = new LinkedHashMap<>();
         Field[] fields = dto.getClass().getDeclaredFields();
