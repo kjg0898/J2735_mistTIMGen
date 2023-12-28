@@ -23,6 +23,9 @@ import java.util.List;
  * -----------------------------------------------------------
  * 2023-11-24        kjg08           최초 생성
  */
+
+
+
 public class TimMessageCreator extends AbstractVerticle {
     private static final Logger logger = LoggerFactory.getLogger(TimMessageCreator.class);
     private static int currentIndex = 0;
@@ -30,7 +33,7 @@ public class TimMessageCreator extends AbstractVerticle {
     private long timerId; // 클래스 레벨 변수로 선언
 
     @Override
-    public void start()  {
+    public void start() {
         // 메타데이터 추출 및 처리
         MetaDataExtracting extractor = new MetaDataExtracting();
         extractor.processFiles().thenRun(() -> {
