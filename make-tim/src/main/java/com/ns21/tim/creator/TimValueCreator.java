@@ -139,7 +139,7 @@ public class TimValueCreator {
                         Map<String, Object> itemWrapper = new LinkedHashMap<>();
                         Map<String, String> item = new LinkedHashMap<>();
 
-                        // instance.json 의 category_name , frame_annotation.json 의  vehicle_state ,  dataset.json 의 scenario_names, frameannotation의 visibility_level 차량종류,차량상태,배경상황,가시성레벨
+                        // instance.json 의 category_name , frame_annotation.json 의 vehicle_state ,  dataset.json 의 scenario_names 차량종류,차량상태,배경상황
                         StringBuilder textBuilder = new StringBuilder();
                         Map<String, Object> attribute = (Map<String, Object>) uuidMap.get("frameAnnotation_attribute");
                         if (attribute != null) {
@@ -194,9 +194,10 @@ public class TimValueCreator {
                         // Assuming scenarioNames is a List<String> and sensorName is a String
                         List<String> sensorName = Collections.singletonList(String.valueOf(uuidMap.get("sensor_name")));
                         // Now put this combined list in 'cit'
+                        cit.put("stopID", uuidMap.get("log_location")); // log.json 의 location //로그가 캡처된 위치/명칭
                         cit.put("text", Collections.singletonList(uuidMap.get("frameData_uuid"))); //frameData.json 의 uuid
                         cit.put("subtext", sensorName);  // sensor.json 의 name  어떤 장비로 인지 하였는지
-                        cit.put("stopID", uuidMap.get("log_location")); // log.json 의 location //로그가 캡처된 위치/명칭
+
                         cits.add(cit);
                         regExtValue.put("cits", cits);
 

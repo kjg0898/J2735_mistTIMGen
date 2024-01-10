@@ -44,24 +44,23 @@ public class UuidMatching {
         Map<String, LogDto> logMap = createMapFromList(logList);
         Map<String, SensorDto> sensorMap = createMapFromList(sensorList);
 
-        frameDataList.parallelStream().forEach(frameData -> {
+
+        for (FrameDataDto frameData : frameDataList) {
+            FrameDto frame = frameMap.get(frameData.getFrameUuid());
             EgoPoseDto egoPose = egoPoseMap.get(frameData.getEgoPoseUuid());
             SensorDto sensor = sensorMap.get(frameData.getSensorUuid());
-            FrameDto frame = frameMap.get(frameData.getFrameUuid());
 
-            if (frame != null) {
-                DatasetDto dataset = datasetMap.get(frame.getDatasetUuid());
-                LogDto log = logMap.get(dataset.getLogUuid());
-
+            if (frame != null && egoPose != null && sensor != null) {
+                DatasetDto dataset = frame != null ? datasetMap.get(frame.getDatasetUuid()) : null;
+                LogDto log = dataset != null ? logMap.get(dataset.getLogUuid()) : null;
                 List<FrameAnnotationDto> relevantFrameAnnotations = frameAnnotationList.stream()
                         .filter(fa -> fa.getFrameDataUuid().equals(frameData.getUuid()))
-                        .toList();
+                        .collect(Collectors.toList());
+
                 for (FrameAnnotationDto frameAnnotation : relevantFrameAnnotations) {
                     InstanceDto instance = instanceMap.get(frameAnnotation.getInstanceUuid());
-
-                    // 필요한 모든 구성 요소(에고 포즈, 센서, 로그, 인스턴스)가 존재하면 모든 관련 객체에 대한 포괄적인 맵(UUID) 구축을 시작
-                    if (egoPose != null && sensor != null && log != null && instance != null) {
-                        Map<String, Object> uuid;
+                    if (log != null && instance != null) {
+                        Map<String, Object> uuid = new LinkedHashMap<>();
                         try {
                             uuid = new LinkedHashMap<>(createPrefixedMap(dataset, "dataset"));
                         } catch (JsonToJ2735Exception e) {
@@ -111,7 +110,7 @@ public class UuidMatching {
                     }
                 }
             }
-        });
+        };
         return UuidList;
     }
 
