@@ -10,7 +10,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
 
 /**
  * packageName    : com.ns21.tim.creator
@@ -32,6 +35,21 @@ public class TimMessageCreator extends AbstractVerticle {
     private List<String> jsonMessages;
     private long timerId; // 클래스 레벨 변수로 선언
 
+   /* // ITIS 코드를 추가하는 별도의 함수
+    private void addItisCode(Map<String, Object> uuidMap, String key, Function<String, Integer> itisCodeMapper, List<Map<String, Object>> advisory) {
+        String value = uuidMap.containsKey(key) ? (String) uuidMap.get(key) : "0";
+        if (value != null && !value.equals("0")) {
+            Integer itisCode = itisCodeMapper.apply(value);
+            if (itisCode != null) {
+                Map<String, Object> itemWrapper = new LinkedHashMap<>();
+                Map<String, Object> item = new LinkedHashMap<>();
+                item.put("itis", itisCode);
+                itemWrapper.put("item", item);
+                advisory.add(itemWrapper);
+            }
+        }
+    }*/
+
     @Override
     public void start() {
         // 메타데이터 추출 및 처리
@@ -48,7 +66,7 @@ public class TimMessageCreator extends AbstractVerticle {
             logger.info("Total messages generated: {}", jsonMessages.size());
 
             // 모든 메시지 처리 후 타이머 중지를 위한 핸들러 ID 저장
-            timerId = vertx.setPeriodic(1000, id -> {
+            timerId = vertx.setPeriodic(100, id -> {
                 if (!jsonMessages.isEmpty() && currentIndex < jsonMessages.size()) {
                     // 현재 인덱스에 따라 하나의 메시지를 선택합니다.
                     String jsonMessage = jsonMessages.get(currentIndex);

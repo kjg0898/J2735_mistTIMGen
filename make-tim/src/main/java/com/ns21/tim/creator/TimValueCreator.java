@@ -3,6 +3,7 @@ package com.ns21.tim.creator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ns21.common.itis.ItisCodeMapper;
 import com.ns21.common.mist.parser.UuidMatching;
 import com.ns21.common.util.MetaDataConvertUtil;
 
@@ -136,45 +137,67 @@ public class TimValueCreator {
                         // Add content
                         Map<String, Object> content = new LinkedHashMap<>();
                         List<Map<String, Object>> advisory = new ArrayList<>();
-                        Map<String, Object> itemWrapper = new LinkedHashMap<>();
-                        Map<String, String> item = new LinkedHashMap<>();
 
                         // instance.json 의 category_name , frame_annotation.json 의 vehicle_state ,  dataset.json 의 scenario_names 차량종류,차량상태,배경상황
-                        StringBuilder textBuilder = new StringBuilder();
-                        Map<String, Object> attribute = (Map<String, Object>) uuidMap.get("frameAnnotation_attribute");
-                        if (attribute != null) {
-                            String vehicleState = (String) attribute.get("vehicle_state");
-                            if (vehicleState != null) {
-                                textBuilder.append(vehicleState).append(",");
+                        String categoryName = uuidMap.containsKey("instance_categoryName") ? (String) uuidMap.get("instance_categoryName") : "0";
+                        String vehicleState = uuidMap.containsKey("frameAnnotation_attribute") && uuidMap.get("frameAnnotation_attribute") != null
+                                ? (String) ((Map<String, Object>) uuidMap.get("frameAnnotation_attribute")).get("vehicle_state") : "0";
+
+                        // ITIS 코드를 저장할 로컬 변수 선언
+                        Integer categoryCode = null;
+                        Integer vehicleStateCode = null;
+
+                        // categoryName에 대한 ITIS 코드 추가
+                        if (categoryName != null && !categoryName.equals("0")) {
+                            categoryCode = ItisCodeMapper.getCategoryITISCode(categoryName);
+                            if (categoryCode != null) {
+                                Map<String, Object> itemWrapper = new LinkedHashMap<>();
+                                Map<String, Object> item = new LinkedHashMap<>();
+                                item.put("itis", categoryCode);
+                                itemWrapper.put("item", item);
+                                advisory.add(itemWrapper);
                             }
                         }
-                        String categoryName = (String) uuidMap.get("instance_categoryName");
-                        textBuilder.append(categoryName).append(",");
 
-                        Object scenarioNamesObj = uuidMap.get("dataset_scenarioNames");
-                        if (scenarioNamesObj instanceof List) {
-                            @SuppressWarnings("unchecked") // 인스턴스 오브를 확인했으므로 안전 캐스팅
-                            List<String> scenarioNamesList = (List<String>) scenarioNamesObj;
-                            String scenarioNames = String.join(", ", scenarioNamesList);
-                            textBuilder.append(scenarioNames).append(",");
+                        // vehicleState에 대한 ITIS 코드 추가
+                        if (vehicleState != null && !vehicleState.equals("0")) {
+                            vehicleStateCode = ItisCodeMapper.getAttributeITISCode(vehicleState);
+                            if (vehicleStateCode != null) {
+                                Map<String, Object> itemWrapper = new LinkedHashMap<>();
+                                Map<String, Object> item = new LinkedHashMap<>();
+                                item.put("itis", vehicleStateCode);
+                                itemWrapper.put("item", item);
+                                advisory.add(itemWrapper);
+                            }
+                        }
+                        // categoryName과 vehicleState가 유효한 값인지 확인
+                        if ((categoryCode == null || categoryCode.equals("0")) &&
+                                (vehicleStateCode == null || vehicleStateCode.equals("0"))) {
+                            continue; // 유효하지 않은 경우, 메시지 생성을 건너뛰고 다음 반복으로 넘어감
                         }
 
-                        Object visibilityLevelObj = uuidMap.get("frameAnnotation_visibilityLevel");
-                        String visibilityLevel = String.valueOf(visibilityLevelObj);
-                        textBuilder.append(visibilityLevel);
 
-                        if (!textBuilder.isEmpty() && textBuilder.charAt(textBuilder.length() - 1) == ',') {
-                            textBuilder.deleteCharAt(textBuilder.length() - 1);
+                        // scenarioNames 처리
+                        StringBuilder textBuilder = new StringBuilder();
+                        Object scenarioNamesObj = uuidMap.get("dataset_scenarioNames");
+                        if (scenarioNamesObj instanceof List) {
+                            @SuppressWarnings("unchecked")
+                            List<String> scenarioNamesList = (List<String>) scenarioNamesObj;
+                            String scenarioNames = String.join(", ", scenarioNamesList);
+                            textBuilder.append(scenarioNames);
                         }
 
                         String textValue = textBuilder.toString();
                         if (!textValue.isEmpty()) {
-                            item.put("text", textValue);
-                            itemWrapper.put("item", item);
-                            advisory.add(itemWrapper);
-                            content.put("advisory", advisory);
-                            dataFrame.put("content", content);
+                            Map<String, Object> textItemWrapper = new LinkedHashMap<>();
+                            Map<String, String> textItem = new LinkedHashMap<>();
+                            textItem.put("text", textValue);
+                            textItemWrapper.put("item", textItem);
+                            advisory.add(textItemWrapper);
                         }
+
+                        content.put("advisory", advisory);
+                        dataFrame.put("content", content);
 
                         dataFrames.add(dataFrame);
                         timMessage.put("dataFrames", dataFrames);
