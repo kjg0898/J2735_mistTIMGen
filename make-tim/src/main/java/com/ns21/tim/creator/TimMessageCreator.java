@@ -66,7 +66,7 @@ public class TimMessageCreator extends AbstractVerticle {
             logger.info("Total messages generated: {}", jsonMessages.size());
 
             // 모든 메시지 처리 후 타이머 중지를 위한 핸들러 ID 저장
-            timerId = vertx.setPeriodic(100, id -> {
+            timerId = vertx.setPeriodic(1000, id -> {
                 if (!jsonMessages.isEmpty() && currentIndex < jsonMessages.size()) {
                     // 현재 인덱스에 따라 하나의 메시지를 선택합니다.
                     String jsonMessage = jsonMessages.get(currentIndex);
