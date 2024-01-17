@@ -170,6 +170,9 @@ public class TimValueCreator {
                                 advisory.add(itemWrapper);
                             }
                         }
+                        if((vehicleState == null || vehicleState.equals("0")) && (categoryName == null || categoryName.equals("0"))){
+                            continue;
+                        }
                         // categoryName과 vehicleState가 유효한 값인지 확인
                         if ((categoryCode == null || categoryCode.equals("0")) &&
                                 (vehicleStateCode == null || vehicleStateCode.equals("0"))) {
